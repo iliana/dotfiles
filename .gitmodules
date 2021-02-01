@@ -1,0 +1,21 @@
+[submodule ".vim/pack/iliana/start/fugitive"]
+	path = .vim/pack/iliana/start/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/iliana/start/sensible"]
+	path = .vim/pack/iliana/start/sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule ".vim/pack/iliana/opt/dracula"]
+	path = .vim/pack/iliana/opt/dracula
+	url = https://github.com/dracula/vim.git
+[submodule ".vim/pack/iliana/start/rust"]
+	path = .vim/pack/iliana/start/rust
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule ".vim/pack/iliana/start/apathy"]
+	path = .vim/pack/iliana/start/apathy
+	url = https://github.com/tpope/vim-apathy.git
+[submodule ".vim/pack/iliana/start/gitgutter"]
+	path = .vim/pack/iliana/start/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/pack/iliana/opt/sleuth"]
+	path = .vim/pack/iliana/opt/sleuth
+	url = https://github.com/tpope/vim-sleuth.git

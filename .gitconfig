@@ -1,0 +1,9 @@
+[user]
+	name = iliana etaoin
+	email = iliana@buttslol.net
+	signingkey = 233FFDDE6EDA3E527EBCBC70BE39FDA48631E022
+[core]
+	excludesfile = ~/.config/gitignore
+[commit]
+	verbose = true
+	gpgsign = true

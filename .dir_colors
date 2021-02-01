@@ -1,0 +1,149 @@
+COLOR tty
+TERM putty-256color
+TERM rxvt-256color
+TERM rxvt-unicode-256color
+TERM rxvt-unicode256
+TERM screen-256color
+TERM xterm-256color
+TERM gnome-256color
+TERM st-256color
+TERM tmux-256color
+
+#NORMAL 00	# global default, no color code at all
+#FILE 00	# normal file, use no color at all
+RESET 0 # reset to "normal" color
+DIR 38;5;117;1	# directory
+LINK 38;5;117;3	# symbolic link (If you set this to 'target' instead of a
+		# numerical value, the color is as for the file pointed to.)
+MULTIHARDLINK 0 # regular file with more than one link
+FIFO 38;5;228	# pipe
+SOCK 38;5;212;3	# socket
+DOOR 38;5;212;3	# door
+BLK 38;5;228;1	# block device driver
+CHR 38;5;228;1	# character device driver
+ORPHAN 38;5;203;1  # symlink to nonexistent file, or non-stat'able file
+MISSING 0 # ... and the files they point to
+SETUID 48;5;196;38;5;15;1	# file that is setuid (u+s)
+SETGID 48;5;11;38;5;16;1	# file that is setgid (g+s)
+CAPABILITY 48;5;196;38;5;226;1	# file with capability
+STICKY_OTHER_WRITABLE 48;5;84;38;5;236;1 # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 48;5;84;38;5;236;1 # dir that is other-writable (o+w) and not sticky
+STICKY 48;5;117;38;5;236;1	# dir with the sticky bit set (+t) and not other-writable
+
+# This is for files with execute permission:
+EXEC 38;5;84
+
+# archives or compressed (red)
+.tar 38;5;203
+.tgz 38;5;203
+.arc 38;5;203
+.arj 38;5;203
+.taz 38;5;203
+.lha 38;5;203
+.lz4 38;5;203
+.lzh 38;5;203
+.lzma 38;5;203
+.tlz 38;5;203
+.txz 38;5;203
+.tzo 38;5;203
+.t7z 38;5;203
+.zip 38;5;203
+.z   38;5;203
+.Z   38;5;203
+.dz  38;5;203
+.gz  38;5;203
+.lrz 38;5;203
+.lz  38;5;203
+.lzo 38;5;203
+.xz  38;5;203
+.bz2 38;5;203
+.bz  38;5;203
+.tbz 38;5;203
+.tbz2 38;5;203
+.tz  38;5;203
+.deb 38;5;203
+.rpm 38;5;203
+.jar 38;5;203
+.war 38;5;203
+.ear 38;5;203
+.sar 38;5;203
+.rar 38;5;203
+.alz 38;5;203
+.ace 38;5;203
+.zoo 38;5;203
+.cpio 38;5;203
+.7z  38;5;203
+.rz  38;5;203
+.cab 38;5;203
+
+# image formats (pink)
+.jpg 38;5;212
+.jpeg 38;5;212
+.gif 38;5;212
+.bmp 38;5;212
+.pbm 38;5;212
+.pgm 38;5;212
+.ppm 38;5;212
+.tga 38;5;212
+.xbm 38;5;212
+.xpm 38;5;212
+.tif 38;5;212
+.tiff 38;5;212
+.png 38;5;212
+.svg 38;5;212
+.svgz 38;5;212
+.mng 38;5;212
+.pcx 38;5;212
+.mov 38;5;212
+.mpg 38;5;212
+.mpeg 38;5;212
+.m2v 38;5;212
+.mkv 38;5;212
+.webm 38;5;212
+.ogm 38;5;212
+.mp4 38;5;212
+.m4v 38;5;212
+.mp4v 38;5;212
+.vob 38;5;212
+.qt  38;5;212
+.nuv 38;5;212
+.wmv 38;5;212
+.asf 38;5;212
+.rm  38;5;212
+.rmvb 38;5;212
+.flc 38;5;212
+.avi 38;5;212
+.fli 38;5;212
+.flv 38;5;212
+.gl 38;5;212
+.dl 38;5;212
+.xcf 38;5;212
+.xwd 38;5;212
+.yuv 38;5;212
+.cgm 38;5;212
+.emf 38;5;212
+
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.axv 38;5;212
+.anx 38;5;212
+.ogv 38;5;212
+.ogx 38;5;212
+
+# audio formats (orange)
+.aac 38;5;215
+.au 38;5;215
+.flac 38;5;215
+.mid 38;5;215
+.midi 38;5;215
+.mka 38;5;215
+.mp3 38;5;215
+.mpc 38;5;215
+.ogg 38;5;215
+.ra 38;5;215
+.wav 38;5;215
+
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.axa 38;5;215
+.oga 38;5;215
+.spx 38;5;215
+.xspf 38;5;215
