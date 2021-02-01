@@ -5,6 +5,7 @@ set meta-flag on
 set input-meta on
 set convert-meta off
 set output-meta on
+set enable-bracketed-paste off
 
 # Completed names which are symbolic links to
 # directories have a slash appended.
