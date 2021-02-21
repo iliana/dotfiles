@@ -1,0 +1,12 @@
+.aws/*/cache
+.cache
+.cargo
+.cdk/cache
+.googleearth/Cache
+.local/pipx/.cache
+.local/pipx/venvs
+.local/share/virtualenvs
+.npm
+.rustup
+.var/app/*/cache
+tmp
