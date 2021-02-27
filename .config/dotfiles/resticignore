@@ -9,4 +9,6 @@
 .npm
 .rustup
 .var/app/*/cache
+.var/app/org.mozilla.firefox/.mozilla/firefox/*/storage/default/*/cache/
+git/*/node_modules
 tmp

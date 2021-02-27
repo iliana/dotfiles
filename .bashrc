@@ -24,8 +24,10 @@ export PATH
 
 export AWS_SDK_LOAD_CONFIG=1
 export EDITOR=vim
-SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export SSH_AUTH_SOCK
+if [[ -z $SSH_AUTH_SOCK ]]; then
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    export SSH_AUTH_SOCK
+fi
 
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE=50000
