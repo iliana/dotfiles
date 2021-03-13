@@ -10,6 +10,7 @@
 .npm
 .rustup
 .var/app/*/cache
+.var/app/com.discordapp.Discord
 .var/app/org.mozilla.firefox/.mozilla/firefox/*/storage/default/*/cache/
 git/*/node_modules
 tmp
