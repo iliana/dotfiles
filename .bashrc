@@ -14,6 +14,7 @@ alias irc='ssh blahaj.buttslol.net -l ilianaw -t irc'
 alias l.='ls -d .* --color=auto'
 alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
+alias mpvl='mpv --loop-playlist'
 alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
 hash python 2>/dev/null || alias python=python3
 

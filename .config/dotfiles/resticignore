@@ -12,5 +12,6 @@
 .var/app/*/cache
 .var/app/com.discordapp.Discord
 .var/app/org.mozilla.firefox/.mozilla/firefox/*/storage/default/*/cache/
+app
 git/*/node_modules
 tmp
