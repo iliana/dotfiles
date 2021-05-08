@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-hash jq pipx restic
+hash jq pipx proot restic
 
 if [[ $# -lt 1 ]]; then
     >&2 echo "usage: restic.sh COMMAND [OPTIONS]"
@@ -21,7 +21,7 @@ repo=$(cat ~/.config/dotfiles/.resticrepo)
 passfile=~/.config/dotfiles/.resticpass
 
 case "$COMMAND" in
-    backup)
+    backup-home)
         cd ~ || exit
         exclude_file=$(mktemp)
         # shellcheck disable=SC2046
@@ -29,6 +29,12 @@ case "$COMMAND" in
         exec restic backup -r "$repo" --password-file "$passfile" \
             --exclude-caches --exclude-file "$exclude_file" "$@" \
             .
+        ;;
+    backup-data)
+        cd "$1" || exit
+        shift
+        exec proot -b .:/data -w /data \
+            restic backup -r "$repo" --password-file "$passfile" "$@" .
         ;;
     *)
         exec restic "$COMMAND" -r "$repo" --password-file "$passfile" "$@"
