@@ -13,4 +13,5 @@
 .var/app/org.mozilla.firefox/.mozilla/firefox/*/storage/default/*/cache/
 app
 git/*/node_modules
+git/oxide
 tmp
