@@ -4,8 +4,7 @@
 .cdk/cache
 .config/chromium
 .googleearth/Cache
-.local/pipx/.cache
-.local/pipx/venvs
+.local/pipx
 .local/share/virtualenvs
 .npm
 .rustup
