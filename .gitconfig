@@ -4,6 +4,7 @@
 	signingkey = 233FFDDE6EDA3E527EBCBC70BE39FDA48631E022
 [core]
 	excludesfile = ~/.config/gitignore
+	hooksPath = ~/.githooks
 [commit]
 	verbose = true
 	gpgsign = true
