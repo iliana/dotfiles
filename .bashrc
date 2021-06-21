@@ -18,7 +18,7 @@ alias mpvl='mpv --loop-playlist'
 alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
 hash python 2>/dev/null || alias python=python3
 
-for dir in ~/.bin ~/.cargo/bin; do
+for dir in ~/.bin ~/.cargo/bin ~/.local/bin; do
     [[ $PATH != ?(*:)$dir?(:*) && -d $dir ]] && PATH="$dir:$PATH"
 done
 export PATH

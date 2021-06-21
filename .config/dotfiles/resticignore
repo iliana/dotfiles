@@ -4,6 +4,8 @@
 .cdk/cache
 .config/chromium
 .googleearth/Cache
+.local/bin
+.local/lib
 .local/pipx
 .local/share/virtualenvs
 .npm
