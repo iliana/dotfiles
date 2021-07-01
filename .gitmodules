@@ -22,3 +22,6 @@
 [submodule ".config/dotfiles/ext/dracula-gedit"]
 	path = .config/dotfiles/ext/dracula-gedit
 	url = https://github.com/dracula/gedit.git
+[submodule ".vim/pack/iliana/start/typescript-vim"]
+	path = .vim/pack/iliana/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git

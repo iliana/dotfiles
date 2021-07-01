@@ -5,40 +5,56 @@
 
 # User specific aliases, environment, and functions
 
-unalias -a
-alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-alias irc='ssh blahaj.buttslol.net -l ilianaw -t irc'
-alias l.='ls -d .* --color=auto'
-alias ll='ls -l --color=auto'
-alias ls='ls --color=auto'
-alias mpvl='mpv --loop-playlist'
-alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
-hash python 2>/dev/null || alias python=python3
+if [[ -e /opt/homebrew/bin/brew && -z ${HOMEBREW_REPOSITORY+x} ]]; then
+    # shellcheck disable=SC2046
+    eval $(/opt/homebrew/bin/brew shellenv)
+fi
 
 for dir in ~/.bin ~/.cargo/bin ~/.local/bin; do
     [[ $PATH != ?(*:)$dir?(:*) && -d $dir ]] && PATH="$dir:$PATH"
 done
 export PATH
 
-export AWS_SDK_LOAD_CONFIG=1
-export EDITOR=vim
-if [[ -z $SSH_AUTH_SOCK ]]; then
-    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    export SSH_AUTH_SOCK
-fi
+[[ -f /opt/homebrew/etc/bash_completion ]] && . /opt/homebrew/etc/bash_completion
 
+unalias -a
+
+alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+[[ $(type -t __git_complete) = function ]] && __git_complete dotfiles __git_main
+
+alias ssh='TERM=tmux-256color ssh'
+alias irc='ssh blahaj.buttslol.net -l ilianaw -t irc'
+
+alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+
+alias aws-sso-util='pipx run aws-sso-util'
+hash python3 2>/dev/null && alias python=python3
+hash mpv 2>/dev/null && alias mpvl='mpv --loop-playlist'
+
+if hash exa 2>/dev/null; then
+    alias ls='exa'
+    alias ll='exa --long --header'
+    alias tree='exa --tree'
+else
+    alias ls='ls --color=auto'
+    alias ll='ls -l --color=auto'
+fi
+# shellcheck disable=SC2046
+eval $(dircolors ~/.dir_colors 2>/dev/null || gdircolors ~/.dir_colors 2>/dev/null || :)
+
+export AWS_SDK_LOAD_CONFIG=1
+export DOCKER_SCAN_SUGGEST=false
+export EDITOR=vim
+unset LESSOPEN
+
+FIGNORE=DS_Store
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE=50000
 HISTTIMEFORMAT="%F %T  "
-unset LESSOPEN
 unset HISTFILESIZE
-
-# shellcheck disable=SC2046
-eval $(dircolors "$HOME"/.dir_colors)
-
 shopt -s checkwinsize histappend
 
 __debug_trap() {
@@ -60,3 +76,9 @@ __prompt_command() {
     PS1+="\[\e[38;5;61;1m\]\$\[\e[0m\] "
 }
 PROMPT_COMMAND=__prompt_command
+
+if [[ $(type -t _expand) = function ]]; then
+    _expand() {
+        return 0
+    }
+fi

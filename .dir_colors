@@ -8,6 +8,7 @@ TERM xterm-256color
 TERM gnome-256color
 TERM st-256color
 TERM tmux-256color
+TERM xterm-kitty
 
 #NORMAL 00	# global default, no color code at all
 #FILE 00	# normal file, use no color at all
