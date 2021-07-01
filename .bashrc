@@ -8,11 +8,13 @@
 if [[ -e /opt/homebrew/bin/brew && -z ${HOMEBREW_REPOSITORY+x} ]]; then
     # shellcheck disable=SC2046
     eval $(/opt/homebrew/bin/brew shellenv)
+else
+    # shellcheck disable=SC2046
+    eval $(/opt/homebrew/bin/brew shellenv | grep -w PATH=)
 fi
 
-for dir in ~/.bin ~/.cargo/bin ~/.local/bin; do
-    [[ $PATH != ?(*:)$dir?(:*) && -d $dir ]] && PATH="$dir:$PATH"
-done
+PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
 [[ -f /opt/homebrew/etc/bash_completion ]] && . /opt/homebrew/etc/bash_completion
