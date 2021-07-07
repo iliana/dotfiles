@@ -1,2 +1,3 @@
-/.dotfiles.git
 /.config/dotfiles/.*
+/.dotfiles.git
+/.ssh/config.priv

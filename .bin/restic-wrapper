@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-hash jq pipx proot restic
+hash jq pipx restic
 
 if [[ $# -lt 1 ]]; then
     >&2 echo "usage: restic.sh COMMAND [OPTIONS]"
@@ -18,25 +18,28 @@ AWS_SESSION_TOKEN="$(jq -r .SessionToken <<<"$credentials_json")"
 export AWS_SESSION_TOKEN
 
 repo=$(cat ~/.config/dotfiles/.resticrepo)
-passfile=~/.config/dotfiles/.resticpass
+if hash security 2>/dev/null; then
+    RESTIC_PASSWORD_COMMAND="security find-generic-password -s restic -a $repo -w"
+    export RESTIC_PASSWORD_COMMAND
+elif [[ -f "$HOME/.config/dotfiles/.resticpass" ]]; then
+    RESTIC_PASSWORD_FILE="$HOME/.config/dotfiles/.resticpass"
+    export RESTIC_PASSWORD_FILE
+fi
 
 case "$COMMAND" in
     backup-home)
         cd ~ || exit
-        exclude_file=$(mktemp)
-        # shellcheck disable=SC2046
-        find $(cat ~/.config/dotfiles/resticignore) -maxdepth 0 2>/dev/null >"$exclude_file" || :
-        exec restic backup -r "$repo" --password-file "$passfile" \
-            --exclude-caches --exclude-file "$exclude_file" "$@" \
+        exec restic backup -r "$repo" \
+            --exclude-caches --exclude-file ~/.config/dotfiles/resticignore "$@" \
             .
         ;;
-    backup-data)
-        cd "$1" || exit
-        shift
-        exec proot -b .:/data -w /data \
-            restic backup -r "$repo" --password-file "$passfile" "$@" .
-        ;;
+    #backup-data)
+    #    cd "$1" || exit
+    #    shift
+    #    exec proot -b .:/data -w /data \
+    #        restic backup -r "$repo" "$@" .
+    #    ;;
     *)
-        exec restic "$COMMAND" -r "$repo" --password-file "$passfile" "$@"
+        exec restic "$COMMAND" -r "$repo" "$@"
         ;;
 esac
