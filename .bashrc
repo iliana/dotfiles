@@ -36,7 +36,6 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
-alias aws-sso-util='pipx run aws-sso-util'
 hash python3 2>/dev/null && alias python=python3
 hash mpv 2>/dev/null && alias mpvl='mpv --loop-playlist'
 
