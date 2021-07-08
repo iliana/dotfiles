@@ -5,19 +5,23 @@
 
 # User specific aliases, environment, and functions
 
-if [[ -e /opt/homebrew/bin/brew && -z ${HOMEBREW_REPOSITORY+x} ]]; then
-    # shellcheck disable=SC2046
-    eval $(/opt/homebrew/bin/brew shellenv)
-else
-    # shellcheck disable=SC2046
-    eval $(/opt/homebrew/bin/brew shellenv | grep -w PATH=)
+homebrew="$(command -v {/opt/homebrew,/usr/local}/bin/brew 2>/dev/null)"
+if [[ -n $homebrew ]]; then
+    if [[ -z ${HOMEBREW_REPOSITORY+x} ]]; then
+        # shellcheck disable=SC2046
+        eval $($homebrew shellenv)
+    else
+        # shellcheck disable=SC2046
+        eval $($homebrew shellenv | grep -w PATH=)
+    fi
 fi
+unset homebrew
 
 PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
-[[ -f /opt/homebrew/etc/bash_completion ]] && . /opt/homebrew/etc/bash_completion
+[[ -f $HOMEBREW_PREFIX/etc/bash_completion ]] && . $HOMEBREW_PREFIX/etc/bash_completion
 
 unalias -a
 
