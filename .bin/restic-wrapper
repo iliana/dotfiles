@@ -18,12 +18,12 @@ AWS_SESSION_TOKEN="$(jq -r .SessionToken <<<"$credentials_json")"
 export AWS_SESSION_TOKEN
 
 repo=$(cat ~/.config/dotfiles/.resticrepo)
-if hash security 2>/dev/null; then
-    RESTIC_PASSWORD_COMMAND="security find-generic-password -s restic -a $repo -w"
-    export RESTIC_PASSWORD_COMMAND
-elif [[ -f "$HOME/.config/dotfiles/.resticpass" ]]; then
+if [[ -f "$HOME/.config/dotfiles/.resticpass" ]]; then
     RESTIC_PASSWORD_FILE="$HOME/.config/dotfiles/.resticpass"
     export RESTIC_PASSWORD_FILE
+elif hash security 2>/dev/null; then
+    RESTIC_PASSWORD_COMMAND="security find-generic-password -s restic -a $repo -w"
+    export RESTIC_PASSWORD_COMMAND
 fi
 
 case "$COMMAND" in
