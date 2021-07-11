@@ -21,12 +21,12 @@ PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
-[[ -f $HOMEBREW_PREFIX/etc/bash_completion ]] && . $HOMEBREW_PREFIX/etc/bash_completion
+[[ -f $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] && . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
 
 unalias -a
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-[[ $(type -t __git_complete) = function ]] && __git_complete dotfiles __git_main
+[[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
 alias ssh='TERM=tmux-256color ssh'
 alias irc='ssh blahaj.buttslol.net -l ilianaw -t irc'
@@ -81,9 +81,3 @@ __prompt_command() {
     PS1+="\[\e[38;5;61;1m\]\$\[\e[0m\] "
 }
 PROMPT_COMMAND=__prompt_command
-
-if [[ $(type -t _expand) = function ]]; then
-    _expand() {
-        return 0
-    }
-fi
