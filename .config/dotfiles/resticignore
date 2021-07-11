@@ -20,9 +20,12 @@ $HOME/Library/Application\ Support/Firefox/Profiles/*/storage/default/*/cache
 $HOME/Library/Caches
 $HOME/Library/Containers/**/Library/Caches
 $HOME/Library/Containers/com.docker.docker
+$HOME/Library/Google/GoogleSoftwareUpdate
 $HOME/Library/Group\ Containers/**/Library/Caches
+$HOME/Library/Logs/CrashReporter/MobileDevice
 $HOME/Library/Mail
 $HOME/Library/Messages
+$HOME/Library/Mobile\ Documents
 $HOME/Music
 $HOME/app
 $HOME/git/*/node_modules
