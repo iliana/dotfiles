@@ -5,6 +5,11 @@
 
 # User specific aliases, environment, and functions
 
+if [[ $TERM = tmux-256color && -d /Applications/kitty.app/Contents/Resources/kitty/terminfo ]]; then
+    export TERM=xterm-kitty
+    export TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo
+fi
+
 homebrew="$(command -v {/opt/homebrew,/usr/local}/bin/brew 2>/dev/null)"
 if [[ -n $homebrew ]]; then
     if [[ -z ${HOMEBREW_REPOSITORY+x} ]]; then
@@ -21,7 +26,7 @@ PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
-[[ -f $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] && . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
+[[ -f $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 unalias -a
 
