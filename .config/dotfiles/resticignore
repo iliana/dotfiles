@@ -16,8 +16,11 @@ $HOME/.var/app/*/cache
 $HOME/.var/app/com.discordapp.Discord
 $HOME/.var/app/org.mozilla.firefox/.mozilla/firefox/*/storage/default/*/cache
 $HOME/Applications
+$HOME/Library/*/*Cache
 $HOME/Library/Application\ Support/Firefox/Profiles/*/storage/default/*/cache
+$HOME/Library/Application\ Support/Syncthing
 $HOME/Library/Caches
+$HOME/Library/Calendars/Calendar\ Cache*
 $HOME/Library/Containers/**/Library/Caches
 $HOME/Library/Containers/com.docker.docker
 $HOME/Library/Google/GoogleSoftwareUpdate
@@ -25,10 +28,11 @@ $HOME/Library/Group\ Containers/**/Library/Caches
 $HOME/Library/Logs/CrashReporter/MobileDevice
 $HOME/Library/Mail
 $HOME/Library/Messages
+$HOME/Library/Metadata/CoreSpotlight/index.*
 $HOME/Library/Mobile\ Documents
 $HOME/Music
 $HOME/app
-$HOME/git/*/node_modules
+$HOME/git/**/node_modules
 $HOME/git/oxide
 $HOME/tmp
 *.part
