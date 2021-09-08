@@ -22,24 +22,33 @@ if [[ -n $homebrew ]]; then
 fi
 unset homebrew
 
-PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+[[ -x /opt/local/bin/pkgin ]] && PATH="$PATH:/opt/local/sbin:/opt/local/bin"
+
+PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
 [[ -f $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+[[ -f /usr/share/bash-completion/bash_completion ]] && . "/usr/share/bash-completion/bash_completion"
 
 unalias -a
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
-alias ssh='TERM=tmux-256color ssh'
+[[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
 alias irc='ssh blahaj.buttslol.net -l ilianaw -t irc'
 
 alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
+
+[[ -x /usr/gnu/bin/grep ]] && grepdir=/usr/gnu/bin/
+# shellcheck disable=SC2139
+alias egrep="${grepdir}egrep --color=auto"
+# shellcheck disable=SC2139
+alias fgrep="${grepdir}fgrep --color=auto"
+# shellcheck disable=SC2139
+alias grep="${grepdir}grep --color=auto"
+unset grepdir
 
 hash python3 2>/dev/null && alias python=python3
 hash mpv 2>/dev/null && alias mpvl='mpv --loop-playlist'
