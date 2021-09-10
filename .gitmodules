@@ -25,3 +25,6 @@
 [submodule ".vim/pack/iliana/start/vim-toml"]
 	path = .vim/pack/iliana/start/toml
 	url = https://github.com/cespare/vim-toml.git
+[submodule ".vim/pack/iliana/start/mdx"]
+	path = .vim/pack/iliana/start/mdx
+	url = https://github.com/jxnblk/vim-mdx-js.git
