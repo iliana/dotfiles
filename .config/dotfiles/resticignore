@@ -32,6 +32,7 @@ $HOME/Library/Metadata/CoreSpotlight/index.*
 $HOME/Library/Mobile\ Documents
 $HOME/Music
 $HOME/app
+$HOME/git/**/.next
 $HOME/git/**/node_modules
 $HOME/git/oxide
 $HOME/tmp
