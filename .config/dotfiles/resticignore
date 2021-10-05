@@ -5,6 +5,7 @@ $HOME/.cargo
 $HOME/.cdk/cache
 $HOME/.config/chromium
 $HOME/.googleearth/Cache
+$HOME/.lima
 $HOME/.local/bin
 $HOME/.local/lib
 $HOME/.local/pipx
