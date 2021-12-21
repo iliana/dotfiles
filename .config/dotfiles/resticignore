@@ -1,5 +1,6 @@
 $HOME/.Trash
 $HOME/.aws/*/cache
+$HOME/.bundle/cache
 $HOME/.cache
 $HOME/.cargo
 $HOME/.cdk/cache
@@ -35,6 +36,7 @@ $HOME/Music
 $HOME/app
 $HOME/git/**/.next
 $HOME/git/**/node_modules
+$HOME/git/bricks/db
 $HOME/git/oxide
 $HOME/tmp
 *.part
