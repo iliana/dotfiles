@@ -14,10 +14,10 @@ homebrew="$(command -v {/opt/homebrew,/usr/local}/bin/brew 2>/dev/null)"
 if [[ -n $homebrew ]]; then
     if [[ -z ${HOMEBREW_REPOSITORY+x} ]]; then
         # shellcheck disable=SC2046
-        eval $(env -i $homebrew shellenv)
+        eval $(env -i "$homebrew" shellenv)
     else
         # shellcheck disable=SC2046
-        eval $(env -i $homebrew shellenv | grep -w PATH=)
+        eval $(env -i "$homebrew" shellenv | grep -w PATH=)
     fi
 fi
 unset homebrew
@@ -63,6 +63,10 @@ else
 fi
 # shellcheck disable=SC2046
 eval $(dircolors ~/.dir_colors 2>/dev/null || gdircolors ~/.dir_colors 2>/dev/null || :)
+
+if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
+    alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
+fi
 
 export AWS_SDK_LOAD_CONFIG=1
 export DOCKER_SCAN_SUGGEST=false
