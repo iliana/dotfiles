@@ -69,6 +69,7 @@ if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
 fi
 
 export AWS_SDK_LOAD_CONFIG=1
+export CARGO_INCREMENTAL=1
 export DOCKER_SCAN_SUGGEST=false
 export EDITOR=vim
 unset LESSOPEN
