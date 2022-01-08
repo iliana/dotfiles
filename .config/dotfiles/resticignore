@@ -12,6 +12,7 @@ $HOME/.local/lib
 $HOME/.local/pipx
 $HOME/.local/share/virtualenvs
 $HOME/.npm
+$HOME/.npm-packages
 $HOME/.rustup
 $HOME/.subversion
 $HOME/.var/app/*/cache
