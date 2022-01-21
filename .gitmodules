@@ -28,3 +28,6 @@
 [submodule ".vim/pack/iliana/start/mdx"]
 	path = .vim/pack/iliana/start/mdx
 	url = https://github.com/jxnblk/vim-mdx-js.git
+[submodule ".vim/pack/iliana/start/unimpaired"]
+	path = .vim/pack/iliana/start/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
