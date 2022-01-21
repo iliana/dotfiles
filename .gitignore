@@ -1,5 +1,6 @@
 /.aws/config
 /.aws/credentials
 /.config/dotfiles/.*
+/.config/kitty/local.conf
 /.dotfiles.git
 /.ssh/config.priv
