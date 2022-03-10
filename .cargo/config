@@ -1,3 +1,6 @@
+[alias]
+t = "nextest run"
+
 [expand]
 pager = true
 theme = "Dracula"
