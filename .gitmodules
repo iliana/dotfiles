@@ -31,3 +31,12 @@
 [submodule ".vim/pack/iliana/start/unimpaired"]
 	path = .vim/pack/iliana/start/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/pack/iliana/start/caddyfile"]
+	path = .vim/pack/iliana/start/caddyfile
+	url = https://github.com/isobit/vim-caddyfile.git
+[submodule "/Users/iliana/.vim/pack/iliana/start/nerdcommenter"]
+	path = /Users/iliana/.vim/pack/iliana/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter.git
+[submodule ".vim/pack/iliana/start/jsx-pretty"]
+	path = .vim/pack/iliana/start/jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
