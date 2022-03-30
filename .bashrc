@@ -52,6 +52,7 @@ unset grepdir
 
 hash python3 2>/dev/null && alias python=python3
 hash mpv 2>/dev/null && alias mpvl='mpv --loop-playlist'
+hash mpv 2>/dev/null && alias mpvsl='mpv --loop-playlist --shuffle'
 
 if hash exa 2>/dev/null; then
     alias ls='exa'
