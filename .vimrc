@@ -15,4 +15,5 @@ set updatetime=100
 
 packadd sleuth
 
+autocmd BufNewFile,BufRead Caddyfile.* set ft=caddyfile
 autocmd FileType caddyfile setlocal tabstop=4
