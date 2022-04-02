@@ -14,3 +14,5 @@ set signcolumn=yes
 set updatetime=100
 
 packadd sleuth
+
+autocmd FileType caddyfile setlocal tabstop=4
