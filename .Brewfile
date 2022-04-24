@@ -3,6 +3,10 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+
+brew "python@3.9", link: false
+brew "python@3.10", link: true
+
 brew "ansible"
 brew "aws-sso-util"
 brew "awscli"
@@ -22,23 +26,24 @@ brew "go"
 brew "htop"
 brew "isort"
 brew "jq"
+brew "mas"
 brew "moreutils"
 brew "mpv"
 brew "neofetch"
 brew "ninja"
-brew "node@16", link: true
+brew "node"
 brew "optipng"
 brew "opus-tools"
 brew "pipenv"
 brew "pipx"
 brew "pngcrush"
 brew "pv"
-brew "python@3.10", link: true
-brew "python@3.9", link: false
 brew "rename"
 brew "restic"
 brew "ripgrep"
+brew "rustup-init"
 brew "shellcheck"
+brew "subversion"
 brew "syncthing", restart_service: true
 brew "telnet"
 brew "tmux"

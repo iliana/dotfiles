@@ -69,6 +69,7 @@ if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
     alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 fi
 
+export APPLE_SSH_ADD_BEHAVIOR=macos
 export AWS_SDK_LOAD_CONFIG=1
 export CARGO_INCREMENTAL=1
 export DOCKER_SCAN_SUGGEST=false
