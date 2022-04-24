@@ -4,3 +4,4 @@
 /.config/kitty/local.conf
 /.dotfiles.git
 /.ssh/config.priv
+/.Brewfile.lock.json
