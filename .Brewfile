@@ -6,6 +6,8 @@ tap "homebrew/services"
 
 brew "python@3.9", link: false
 brew "python@3.10", link: true
+brew "node", link: false
+brew "node@16", link: true
 
 brew "ansible"
 brew "aws-sso-util"
@@ -18,6 +20,7 @@ brew "cmake"
 brew "colima"
 brew "coreutils"
 brew "exa"
+brew "fd"
 brew "ffmpeg"
 brew "flake8"
 brew "git"
@@ -31,7 +34,6 @@ brew "moreutils"
 brew "mpv"
 brew "neofetch"
 brew "ninja"
-brew "node"
 brew "optipng"
 brew "opus-tools"
 brew "pipenv"
