@@ -69,5 +69,6 @@ cask "netnewswire"
 cask "notunes"
 mas "Amphetamine", id: 937984704
 mas "PCalc", id: 403504866
+mas "RadarScope", id: 432027450
 mas "Tailscale", id: 1475387142
 mas "iA Writer", id: 775737590
