@@ -25,6 +25,7 @@ unset homebrew
 [[ -x /opt/local/bin/pkgin ]] && PATH="$PATH:/opt/local/sbin:/opt/local/bin"
 
 PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
 PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH

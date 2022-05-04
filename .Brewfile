@@ -59,6 +59,7 @@ brew "tokei"
 brew "vim"
 brew "watch"
 brew "zola"
+brew "iliana/tap/sshca", args: ["HEAD"]
 cask "affinity-designer"
 cask "affinity-publisher"
 cask "firefox"
