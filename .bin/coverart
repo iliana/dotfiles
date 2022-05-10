@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+# pylint: disable=missing-function-docstring,missing-module-docstring
+
+import argparse
+import urllib.parse
+import urllib.request
+from io import BytesIO
+
+from mediafile import MediaFile
+from PIL import Image
+
+MAX_DIMENSION = 1000
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("art")
+    parser.add_argument("media", nargs="+", type=MediaFile)
+    args = parser.parse_args()
+
+    parsed = urllib.parse.urlparse(args.art)
+    if parsed.scheme:
+        with urllib.request.urlopen(args.art) as response:
+            buf = response.read()
+    else:
+        with open(args.art, "rb") as file:
+            buf = file.read()
+
+    art = Image.open(BytesIO(buf))
+    if (
+        art.height <= MAX_DIMENSION
+        and art.width <= MAX_DIMENSION
+        and art.format == "JPEG"
+    ):
+        final = buf
+    else:
+        art = art.convert("RGB")
+        art.thumbnail((MAX_DIMENSION, MAX_DIMENSION))
+        buf = BytesIO()
+        art.save(buf, format="JPEG", quality=90)
+        final = buf.getvalue()
+
+    for file in args.media:
+        file.art = final
+        file.save()
+
+
+if __name__ == "__main__":
+    main()

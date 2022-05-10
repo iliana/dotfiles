@@ -16,65 +16,50 @@ def main():
     parser.add_argument("--out-dir", type=Path)
     args = parser.parse_args()
 
-    flacs = sorted(args.flacs, key=lambda f: (f.disc, f.track))
-    jobs = (
-        {
-            "after": len(flacs) > 1 and flacs[(idx + 1) % len(flacs)].path,
-            "before": len(flacs) > 1 and flacs[(idx - 1) % len(flacs)].path,
-            "file": flac.path,
-            "out": (
-                (args.out_dir or Path(flac.path).parent)
-                / Path(flac.path).with_suffix(".m4a").name
-            ),
-            "sample_rate": flac.samplerate,
-        }
-        for idx, flac in enumerate(flacs)
-    )
     with Pool() as pool:
-        aacs = pool.map(run_convert, jobs)
+        jobs = ((flac.path, flac.samplerate, args.out_dir) for flac in args.flacs)
+        aacs = pool.starmap(run_convert, jobs)
 
-    for flac, aac in zip(flacs, aacs):
-        copy_tags(flac, aac)
+    for flac, aac in zip(args.flacs, aacs):
+        aac = MediaFile(aac)
+        for attr in [
+            "album",
+            "albumartist",
+            "art",
+            "artist",
+            "title",
+            "track",
+        ]:
+            setattr(aac, attr, getattr(flac, attr))
+        aac.date = flac.original_date or flac.date
+        aac.disc = flac.disc or 1
+        aac.save()
 
     r128gain.process(list(map(str, aacs)), album_gain=True)
 
 
-def run_convert(job):
-    new_sample_rate = job["sample_rate"]
-    while new_sample_rate > 48000:
-        new_sample_rate //= 2
-
-    command = ["afconvert"]
-    command.extend(["--data", "aach"])  # HE-AAC
-    if new_sample_rate != job["sample_rate"]:
-        command[-1] = f"{command[-1]}@{new_sample_rate}"
-    command.extend(["--strategy", "3"])  # VBR
-    command.extend(["-ue", "vbrq", "96"])  # VBR quality, 0-127
-    command.extend(["-quality", "127"])  # "codec quality". not sure lol
-    for word in ["before", "after"]:
-        if job[word]:
-            command.extend([f"--gapless-{word}", job[word]])
-    command.extend([job["file"], job["out"]])
-    subprocess.run(command, check=True)
-
-    return job["out"]
-
-
-def copy_tags(flac, aac):
-    aac = MediaFile(aac)
-    aac.delete()
-    for attr in [
-        "album",
-        "albumartist",
-        "art",
-        "artist",
-        "date",
-        "title",
-        "track",
-    ]:
-        setattr(aac, attr, getattr(flac, attr))
-    aac.disc = flac.disc or 1
-    aac.save()
+def run_convert(file, sample_rate, out_dir):
+    while sample_rate > 48000:
+        sample_rate //= 2
+    out = (out_dir or Path(file).parent) / Path(file).with_suffix(".m4a").name
+    subprocess.run(
+        [
+            "afconvert",
+            "--data",
+            f"aac@{sample_rate}",
+            "--strategy",
+            "3",
+            "-ue",
+            "vbrq",
+            "80",
+            "--quality",
+            "127",
+            file,
+            out,
+        ],
+        check=True,
+    )
+    return out
 
 
 if __name__ == "__main__":
