@@ -22,17 +22,15 @@ def main():
 
     for flac, aac in zip(args.flacs, aacs):
         aac = MediaFile(aac)
-        for attr in [
-            "album",
-            "albumartist",
-            "art",
-            "artist",
-            "title",
-            "track",
-        ]:
-            setattr(aac, attr, getattr(flac, attr))
+        aac.art = flac.art
+        aac.artist = flac.artist
         aac.date = flac.original_date or flac.date
-        aac.disc = flac.disc or 1
+        aac.title = flac.title
+        if flac.album is not None:
+            aac.album = flac.album
+            aac.albumartist = flac.albumartist
+            aac.disc = flac.disc or 1
+            aac.track = flac.track
         aac.save()
 
     r128gain.process(list(map(str, aacs)), album_gain=True)
