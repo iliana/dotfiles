@@ -71,7 +71,11 @@ if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
     alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 fi
 
-export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/cowsay
+if [[ -d $HOME/git/Kaleidoscope ]] && hash arduino-cli 2>/dev/null; then
+    export KALEIDOSCOPE_DIR=$HOME/git/Kaleidoscope
+fi
+
+export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/kijetesantakaluotokieni
 export APPLE_SSH_ADD_BEHAVIOR=macos
 export AWS_SDK_LOAD_CONFIG=1
 export CARGO_INCREMENTAL=1
