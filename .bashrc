@@ -109,3 +109,6 @@ __prompt_command() {
     PS1+="\[\e[38;5;61;1m\]\$\[\e[0m\] "
 }
 PROMPT_COMMAND=__prompt_command
+
+# Source host-specific definitions
+[[ -f $HOME/.bashrc.local ]] && . "$HOME/.bashrc.local"
