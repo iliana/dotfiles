@@ -112,3 +112,5 @@ PROMPT_COMMAND=__prompt_command
 
 # Source host-specific definitions
 [[ -f $HOME/.bashrc.local ]] && . "$HOME/.bashrc.local"
+
+true
