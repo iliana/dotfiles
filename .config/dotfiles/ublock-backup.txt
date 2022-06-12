@@ -1,0 +1,43 @@
+{
+  "timeStamp": 1655057296649,
+  "version": "1.42.4",
+  "userSettings": {
+    "advancedUserEnabled": true,
+    "externalLists": "https://iliana.github.io/ublock-rules/rules.txt",
+    "importedLists": [
+      "https://iliana.github.io/ublock-rules/rules.txt"
+    ],
+    "popupPanelSections": 31
+  },
+  "selectedFilterLists": [
+    "user-filters",
+    "ublock-filters",
+    "ublock-badware",
+    "ublock-privacy",
+    "ublock-quick-fixes",
+    "ublock-abuse",
+    "ublock-unbreak",
+    "easylist",
+    "easyprivacy",
+    "urlhaus-1",
+    "adguard-annoyance",
+    "ublock-annoyances",
+    "plowe-0",
+    "https://iliana.github.io/ublock-rules/rules.txt"
+  ],
+  "hiddenSettings": {},
+  "whitelist": [
+    "about-scheme",
+    "chrome-extension-scheme",
+    "chrome-scheme",
+    "edge-scheme",
+    "moz-extension-scheme",
+    "opera-scheme",
+    "vivaldi-scheme",
+    "wyciwyg-scheme"
+  ],
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
+  "userFilters": ""
+}
