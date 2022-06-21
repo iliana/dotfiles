@@ -6,6 +6,7 @@ tap "homebrew/services"
 tap "iliana/tap"
 brew "ansible"
 brew "arduino-cli"
+brew "asimov", restart_service: true
 brew "aws-sso-util"
 brew "awscli"
 brew "bash"
