@@ -1,11 +1,11 @@
 {
-  "timeStamp": 1656024512020,
+  "timeStamp": 1656558949973,
   "version": "1.43.0",
   "userSettings": {
     "advancedUserEnabled": true,
-    "externalLists": "https://iliana.github.io/ublock-rules/rules.txt?1656024472",
+    "externalLists": "https://iliana.github.io/ublock-rules/rules.txt?1656558779",
     "importedLists": [
-      "https://iliana.github.io/ublock-rules/rules.txt?1656024472"
+      "https://iliana.github.io/ublock-rules/rules.txt?1656558779"
     ],
     "popupPanelSections": 31
   },
@@ -23,7 +23,7 @@
     "adguard-annoyance",
     "ublock-annoyances",
     "plowe-0",
-    "https://iliana.github.io/ublock-rules/rules.txt?1656024472"
+    "https://iliana.github.io/ublock-rules/rules.txt?1656558779"
   ],
   "hiddenSettings": {},
   "whitelist": [
