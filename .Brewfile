@@ -85,5 +85,6 @@ cask "openttd"
 cask "tailscale"
 mas "Amphetamine", id: 937984704
 mas "PCalc", id: 403504866
+mas "Parcel", id: 639968404
 mas "RadarScope", id: 432027450
 mas "iA Writer", id: 775737590
