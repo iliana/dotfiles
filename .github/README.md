@@ -1,10 +1,12 @@
 # iliana's dotfiles
 
-This is the third generation of [iliana](https://github.com/iliana)'s dotfiles.
+I find it is important to share little parts of how I operate a computer to others who are also cursed to operate computers.
 
-![image](https://user-images.githubusercontent.com/52814/106420173-edfc8080-640e-11eb-87fc-83b1c76d5080.png)
+These dotfiles are tracked in a bare git repository. This technique has been described in [many](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html) [different](https://www.atlassian.com/git/tutorials/dotfiles) [ways](https://www.google.com/search?q=dotfiles+bare+git+repo).
 
-The dotfiles are tracked in a bare git repository. This technique has been described in [many](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html) [different](https://www.atlassian.com/git/tutorials/dotfiles) [ways](https://www.google.com/search?q=dotfiles+bare+git+repo).
+For reference, I use macOS on my desktop machines, mostly Debian for servers, and illumos for work.
+
+The description for this repo comes from [this excellent tweet](https://twitter.com/cakesandcourage/status/1461481653059129345).
 
 ## iliana's cheat sheet
 
