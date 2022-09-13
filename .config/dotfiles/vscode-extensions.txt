@@ -1,0 +1,4 @@
+bpat86.nightcall
+esbenp.prettier-vscode
+rust-lang.rust-analyzer
+vscodevim.vim

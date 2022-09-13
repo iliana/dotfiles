@@ -3,7 +3,7 @@
 	email = iliana@buttslol.net
 [core]
 	excludesfile = ~/.config/gitignore
-	hooksPath = ~/.githooks
+	hooksPath = ~/.config/dotfiles/hooks
 [commit]
 	verbose = true
 [pull]
@@ -14,3 +14,5 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[includeIf "gitdir:~/.dotfiles.git"]
+	path = ~/.config/dotfiles/.gitconfig

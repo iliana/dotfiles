@@ -1,0 +1,4 @@
+[core]
+	hooksPath = ~/.config/dotfiles/metahooks
+[alias]
+	vscode-install = "!~/.config/dotfiles/vscode-install.sh"

@@ -1,0 +1,34 @@
+{
+  "workbench.colorTheme": "Nightcall",
+  "editor.fontFamily": "Iosevka, monospace",
+  "editor.fontSize": 14,
+  "editor.wordWrap": "on",
+  "editor.wrappingStrategy": "advanced",
+  "editor.wordWrapColumn": 100,
+  "editor.fontLigatures": true,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "editor.renderFinalNewline": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "workbench.startupEditor": "none",
+  "window.autoDetectHighContrast": false,
+  "window.newWindowDimensions": "maximized",
+  "workbench.colorCustomizations": {
+    "[Nightcall]": {
+      "editorInlayHint.background": "#e4ccff22",
+      "editorInlayHint.foreground": "#e4ccffbb"
+    }
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.inlayHints.fontFamily": "system-ui",
+  "editor.inlayHints.fontSize": 11,
+  "editor.inlayHints.padding": true,
+  "rust-analyzer.hover.actions.enable": false,
+  "editor.bracketPairColorization.enabled": false,
+  "rust-analyzer.imports.granularity.group": "module",
+  "terminal.integrated.fontSize": 14,
+  "editor.lightbulb.enabled": false
+}

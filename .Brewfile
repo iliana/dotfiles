@@ -89,6 +89,7 @@ cask "notunes"
 cask "openttd"
 cask "sameboy"
 cask "tailscale"
+cask "visual-studio-code"
 cask "wireshark"
 mas "Amphetamine", id: 937984704
 mas "PCalc", id: 403504866
