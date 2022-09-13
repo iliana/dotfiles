@@ -1,4 +1,5 @@
 bpat86.nightcall
+bradlc.vscode-tailwindcss
 esbenp.prettier-vscode
 rust-lang.rust-analyzer
 vscodevim.vim

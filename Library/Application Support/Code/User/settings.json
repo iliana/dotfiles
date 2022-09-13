@@ -1,16 +1,32 @@
 {
-  "workbench.colorTheme": "Nightcall",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.enabled": false,
   "editor.fontFamily": "Iosevka, monospace",
-  "editor.fontSize": 14,
-  "editor.wordWrap": "on",
-  "editor.wrappingStrategy": "advanced",
-  "editor.wordWrapColumn": 100,
   "editor.fontLigatures": true,
-  "rust-analyzer.checkOnSave.command": "clippy",
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.inlayHints.fontFamily": "system-ui",
+  "editor.inlayHints.fontSize": 11,
+  "editor.inlayHints.padding": true,
+  "editor.lightbulb.enabled": false,
   "editor.renderFinalNewline": false,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100,
+  "editor.wrappingStrategy": "advanced",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "workbench.startupEditor": "none",
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.hover.actions.enable": false,
+  "rust-analyzer.imports.granularity.group": "module",
+  "terminal.integrated.fontSize": 14,
   "window.autoDetectHighContrast": false,
   "window.newWindowDimensions": "maximized",
   "workbench.colorCustomizations": {
@@ -19,16 +35,6 @@
       "editorInlayHint.foreground": "#e4ccffbb"
     }
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.formatOnSave": true,
-  "editor.inlayHints.fontFamily": "system-ui",
-  "editor.inlayHints.fontSize": 11,
-  "editor.inlayHints.padding": true,
-  "rust-analyzer.hover.actions.enable": false,
-  "editor.bracketPairColorization.enabled": false,
-  "rust-analyzer.imports.granularity.group": "module",
-  "terminal.integrated.fontSize": 14,
-  "editor.lightbulb.enabled": false
+  "workbench.colorTheme": "Nightcall",
+  "workbench.startupEditor": "none"
 }
