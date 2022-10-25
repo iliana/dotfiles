@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# shellcheck disable=SC1091
+[[ -f $HOME/.config/yeet.env ]] && . "$HOME/.config/yeet.env"
+[[ -z ${OMICRON_DIR+x} ]] && OMICRON_DIR=$HOME/git/omicron
+# shellcheck disable=SC2088
+[[ -z ${STATE_DIR+x} ]] && STATE_DIR="~/.local/state/yeet"
+
+_omicron_run() {
+    ssh -t "$OMICRON_HOST" "cd $STATE_DIR/omicron; export PATH=\"\$HOME/.cargo/bin:\$PWD/out/clickhouse:\$PWD/out/cockroachdb/bin:\$PATH\"; $1"
+}
+
+_deploy() {
+    if [[ -z ${OMICRON_HOST+x} ]]; then
+        >&2 echo "OMICRON_HOST is not set; set this in ~/.config/yeet.env"
+        exit 1
+    fi
+
+    cd "$OMICRON_DIR"
+    git ls-files -z --cached --others --exclude-standard | rsync -av --progress --files-from=- --from0 . "$OMICRON_HOST:$STATE_DIR/omicron/"
+    _omicron_run "[[ $STATE_DIR/omicron/tools -nt $STATE_DIR/mtime.omicron-prereq ]] && ./tools/install_prerequisites.sh -y; touch -r $STATE_DIR/omicron/tools $STATE_DIR/mtime.omicron-prereq"
+    _omicron_run "[[ -f ./out/certs/cert.pem ]] || ./tools/create_self_signed_cert.sh"
+    _omicron_run "[[ -f ./oxp_d462a7f7-b628-40fe-80ff-4e4189e2d62b.vdev ]] || pfexec ./tools/create_virtual_hardware.sh"
+    _omicron_run "cargo run --release --locked --bin omicron-package -- package"
+    _omicron_run "pfexec ./target/release/omicron-package install"
+    _omicron_run "cargo run -p end-to-end-tests --bin bootstrap"
+}
+
+case "$1" in
+    deploy)
+        _deploy
+        ;;
+    cargo)
+        shift
+        _omicron_run "cargo $*"
+        ;;
+    *)
+        >&2 echo "unknown subcommand: $1"
+        exit 1
+        ;;
+esac
