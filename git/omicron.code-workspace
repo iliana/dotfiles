@@ -5,6 +5,7 @@
     }
   ],
   "settings": {
-    "rust-analyzer.checkOnSave.command": "check"
+    "rust-analyzer.checkOnSave.command": "check",
+    "vim.textwidth": 80
   }
 }
