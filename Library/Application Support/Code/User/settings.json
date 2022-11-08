@@ -41,5 +41,11 @@
     }
   },
   "workbench.colorTheme": "Nightcall",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
