@@ -1,0 +1,6 @@
+default_host: dreamweaver
+hosts:
+  dreamweaver:
+    hostname: dreamweaver
+    folder: /srv/files.iliana.fyi
+    url: https://files.iliana.fyi
