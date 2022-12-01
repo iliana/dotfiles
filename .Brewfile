@@ -75,6 +75,7 @@ brew "zstd"
 brew "iliana/tap/kijetesantakaluotokieni"
 brew "iliana/tap/sshca"
 cask "affinity-designer"
+cask "affinity-photo"
 cask "affinity-publisher"
 cask "audacity"
 cask "firefox"
@@ -94,9 +95,12 @@ cask "notunes"
 cask "openttd"
 cask "sameboy"
 cask "tailscale"
+cask "transmission-remote-gui"
 cask "visual-studio-code"
+cask "vlc"
 cask "wireshark"
 mas "Amphetamine", id: 937984704
+mas "GarageBand", id: 682658836
 mas "PCalc", id: 403504866
 mas "Parcel", id: 639968404
 mas "RadarScope", id: 432027450
