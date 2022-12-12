@@ -2,6 +2,9 @@ bpat86.nightcall
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 esbenp.prettier-vscode
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode.remote-explorer
 rust-lang.rust-analyzer
 tamasfe.even-better-toml
 timonwong.shellcheck

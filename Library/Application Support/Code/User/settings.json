@@ -50,5 +50,7 @@
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "html.autoClosingTags": false,
+  "html.autoCreateQuotes": false
 }
