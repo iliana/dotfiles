@@ -22,6 +22,8 @@ if [[ -n $homebrew ]]; then
 fi
 unset homebrew
 
+[[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
 [[ -x /opt/local/bin/pkgin ]] && PATH="$PATH:/opt/local/sbin:/opt/local/bin"
 
 PATH="/opt/homebrew/opt/node@16/bin:$PATH"
