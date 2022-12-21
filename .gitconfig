@@ -16,3 +16,5 @@
 	enabled = true
 [includeIf "gitdir:~/.dotfiles.git"]
 	path = ~/.config/dotfiles/.gitconfig
+[url "git@github.com:"]
+	insteadOf = https://github.com/
