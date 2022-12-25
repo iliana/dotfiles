@@ -37,7 +37,7 @@ def main():
 
 
 def run_convert(file, sample_rate, out_dir):
-    while sample_rate > 48000:
+    while sample_rate >= 88200:
         sample_rate //= 2
     out = (out_dir or Path(file).parent) / Path(file).with_suffix(".m4a").name
     subprocess.run(
