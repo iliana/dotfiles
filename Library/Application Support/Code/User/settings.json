@@ -20,7 +20,7 @@
   "editor.inlayHints.fontSize": 11,
   "editor.inlayHints.padding": true,
   "editor.lightbulb.enabled": false,
-  "editor.renderFinalNewline": false,
+  "editor.renderFinalNewline": "off",
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 100,
   "editor.wrappingStrategy": "advanced",
@@ -52,5 +52,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "html.autoClosingTags": false,
-  "html.autoCreateQuotes": false
+  "html.autoCreateQuotes": false,
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  }
 }
