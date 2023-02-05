@@ -2,6 +2,7 @@ asciidoctor.asciidoctor-vscode
 bpat86.nightcall
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
+EditorConfig.EditorConfig
 esbenp.prettier-vscode
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
