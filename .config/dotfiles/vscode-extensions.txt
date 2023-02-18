@@ -1,6 +1,7 @@
 asciidoctor.asciidoctor-vscode
 bpat86.nightcall
 bradlc.vscode-tailwindcss
+Catppuccin.catppuccin-vsc
 dbaeumer.vscode-eslint
 EditorConfig.EditorConfig
 esbenp.prettier-vscode

@@ -40,7 +40,7 @@
       "editorInlayHint.foreground": "#e4ccffbb"
     }
   },
-  "workbench.colorTheme": "Nightcall",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.startupEditor": "none",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -55,5 +55,11 @@
   "html.autoCreateQuotes": false,
   "[c]": {
     "editor.defaultFormatter": "xaver.clang-format"
-  }
+  },
+  "catppuccin.colorOverrides": {
+    "mocha": {
+      "base": "#0e0e1e"
+    }
+  },
+  "catppuccin.workbenchMode": "flat"
 }
