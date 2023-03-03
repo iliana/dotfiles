@@ -43,6 +43,7 @@ unalias -a
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
+[[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
 alias irc='ssh blahaj -t irc'
 
 alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
