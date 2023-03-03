@@ -5,11 +5,6 @@
 
 # User specific aliases, environment, and functions
 
-if [[ $TERM = tmux-256color && -d /Applications/kitty.app/Contents/Resources/kitty/terminfo ]]; then
-    export TERM=xterm-kitty
-    export TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo
-fi
-
 homebrew="$(command -v {/opt/homebrew,/usr/local}/bin/brew 2>/dev/null)"
 if [[ -n $homebrew ]]; then
     if [[ -z ${HOMEBREW_REPOSITORY+x} ]]; then
@@ -18,6 +13,13 @@ if [[ -n $homebrew ]]; then
     else
         # shellcheck disable=SC2046
         eval $(env -i "$homebrew" shellenv | grep -w PATH=)
+    fi
+
+    if [[ -z $(ls "$HOME/.local/share/terminfo/*/tmux-256color" 2>/dev/null) ]]; then
+        mkdir -p "$HOME/.local/share/terminfo"
+        /opt/homebrew/opt/ncurses/bin/infocmp -x tmux-256color | sed -e 's/pairs#[x0-9]*,/pairs#32767,/' > "$HOME/.local/share/terminfo/tmux-256color.src"
+        /usr/bin/tic -x -o "$HOME/.local/share/terminfo" "$HOME/.local/share/terminfo/tmux-256color.src"
+        rm "$HOME/.local/share/terminfo/tmux-256color.src"
     fi
 fi
 unset homebrew
@@ -41,7 +43,6 @@ unalias -a
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
-[[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
 alias irc='ssh blahaj -t irc'
 
 alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
