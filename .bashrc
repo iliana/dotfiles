@@ -83,6 +83,7 @@ fi
 export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/kijetesantakaluotokieni
 export APPLE_SSH_ADD_BEHAVIOR=macos
 export AWS_SDK_LOAD_CONFIG=1
+export COLORTERM=truecolor
 export DOCKER_SCAN_SUGGEST=false
 export EDITOR=vim
 unset LESSOPEN
