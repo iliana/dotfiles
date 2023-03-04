@@ -5,3 +5,6 @@ bufferline = "multiple"
 
 [editor.file-picker]
 hidden = false
+
+[editor.indent-guides]
+render = true
