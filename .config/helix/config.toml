@@ -1,1 +1,7 @@
 theme = "iliana"
+
+[editor]
+bufferline = "multiple"
+
+[editor.file-picker]
+hidden = false
