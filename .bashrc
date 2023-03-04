@@ -27,7 +27,6 @@ if [[ $OSTYPE = darwin* ]] && [[ $TERM = tmux-256color ]]; then
 fi
 
 [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
 [[ -x /opt/local/bin/pkgin ]] && PATH="$PATH:/opt/local/sbin:/opt/local/bin"
 
 PATH="/opt/homebrew/opt/node@18/bin:$PATH"
@@ -48,8 +47,6 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
 alias irc='ssh blahaj -t irc'
 
-alias rg='rg --colors path:fg:212 --colors line:fg:141 --colors match:fg:203'
-
 [[ -x /usr/gnu/bin/grep ]] && grepdir=/usr/gnu/bin/
 # shellcheck disable=SC2139
 alias egrep="${grepdir}egrep --color=auto"
@@ -63,6 +60,17 @@ hash python3 2>/dev/null && alias python=python3
 hash mpv 2>/dev/null && alias mpvl='mpv --loop-playlist'
 hash mpv 2>/dev/null && alias mpvsl='mpv --loop-playlist --shuffle'
 
+# There's not a good heuristic for detecting truecolor support for me. On
+# desktop I am almost certainly using kitty -> tmux, which works fine (kitty
+# sets COLORTERM=truecolor); once I ssh somewhere that environment is lost. But
+# I also use Prompt on my phone, which does not support truecolor.
+#
+# Our heuristic will be "if we've connected via ssh and our TERM is tmux-
+# 256color, assume truecolor support".
+if [[ -n $SSH_CONNECTION ]] && [[ $TERM = tmux-256color ]]; then
+    export COLORTERM=truecolor
+fi
+
 if hash exa 2>/dev/null; then
     alias ls='exa'
     alias ll='exa --long --header'
@@ -71,8 +79,19 @@ else
     alias ls='ls --color=auto'
     alias ll='ls -l --color=auto'
 fi
-# shellcheck disable=SC2046
-eval $(dircolors ~/.dir_colors 2>/dev/null || gdircolors ~/.dir_colors 2>/dev/null || :)
+if hash vivid 2>/dev/null; then
+    LS_COLORS=$(vivid generate catppuccin-mocha)
+else
+    LS_COLORS=$(< ~/.config/dotfiles/vivid.out)
+fi
+export LS_COLORS
+
+if hash hx 2>/dev/null; then
+    export EDITOR=hx
+    alias vim=hx
+else
+    export EDITOR=vim
+fi
 
 if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
     alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
@@ -85,9 +104,7 @@ fi
 export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/kijetesantakaluotokieni
 export APPLE_SSH_ADD_BEHAVIOR=macos
 export AWS_SDK_LOAD_CONFIG=1
-export COLORTERM=truecolor
 export DOCKER_SCAN_SUGGEST=false
-export EDITOR=vim
 unset LESSOPEN
 
 FIGNORE=DS_Store
