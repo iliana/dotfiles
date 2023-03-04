@@ -14,15 +14,17 @@ if [[ -n $homebrew ]]; then
         # shellcheck disable=SC2046
         eval $(env -i "$homebrew" shellenv | grep -w PATH=)
     fi
-
-    if [[ -z $(ls "$HOME/.local/share/terminfo/*/tmux-256color" 2>/dev/null) ]]; then
-        mkdir -p "$HOME/.local/share/terminfo"
-        /opt/homebrew/opt/ncurses/bin/infocmp -x tmux-256color | sed -e 's/pairs#[x0-9]*,/pairs#32767,/' > "$HOME/.local/share/terminfo/tmux-256color.src"
-        /usr/bin/tic -x -o "$HOME/.local/share/terminfo" "$HOME/.local/share/terminfo/tmux-256color.src"
-        rm "$HOME/.local/share/terminfo/tmux-256color.src"
-    fi
 fi
 unset homebrew
+
+if [[ $OSTYPE = darwin* ]] && [[ $TERM = tmux-256color ]]; then
+    export TERMINFO="$HOME/.local/share/terminfo"
+    if ! [[ -f $TERMINFO/tmux-256color.terminfo ]]; then
+        mkdir -p "$TERMINFO"
+        "$HOMEBREW_PREFIX/opt/ncurses/bin/infocmp" -x tmux-256color > "$TERMINFO/tmux-256color.terminfo"
+        /usr/bin/tic -x "$TERMINFO/tmux-256color.terminfo"
+    fi
+fi
 
 [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
