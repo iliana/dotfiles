@@ -1,19 +1,16 @@
 filetype plugin indent on
 syntax enable
 
-packadd dracula
-colorscheme dracula
-highlight Normal ctermbg=none
-
 set expandtab
 set hlsearch
 set number
 set numberwidth=4
 set shiftwidth=4
-set signcolumn=yes
+set termguicolors
 set updatetime=100
 
 packadd sleuth
+packadd catppuccin
 
-autocmd BufNewFile,BufRead Caddyfile.* set ft=caddyfile
-autocmd FileType caddyfile setlocal tabstop=4
+autocmd SourcePost * hi Normal guibg=NONE ctermbg=NONE
+colorscheme catppuccin_mocha
