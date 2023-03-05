@@ -5,5 +5,5 @@
 	path = .vim/pack/iliana/opt/sleuth
 	url = https://github.com/tpope/vim-sleuth.git
 [submodule ".vim/pack/iliana/opt/catppuccin"]
-	path = .vim/pack/iliana/opt/catppuccin
+	path = .vim/pack/iliana/start/catppuccin
 	url = https://github.com/catppuccin/vim
