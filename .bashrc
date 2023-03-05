@@ -123,14 +123,15 @@ trap __debug_trap DEBUG
 __prompt_command() {
     local exit=$?
 
-    PS1="\n\[\e[48;5;61;38;5;255m\]${HOSTNAME%.*}\[\e[0m\]"
+    PS1="\n\[\e[48;2;49;50;68m\]\[\e[K\]"
+    PS1+="\[\e[38;2;137;180;250m\]${HOSTNAME%.*}\[\e[39m\]"
     if [[ $exit != 0 ]]; then
-        PS1+="  \[\e[38;5;203m\]$exit\[\e[0m\]"
+        PS1+="  \[\e[38;2;235;160;172m\]$exit\[\e[39m\]"
     else
-        PS1+="  \[\e[38;5;117m\]$exit\[\e[0m\]"
+        PS1+="  \[\e[38;2;166;227;161m\]$exit\[\e[39m\]"
     fi
-    PS1+="  \[\e[38:5:228;3m\]\w\[\e[0m\]\n"
-    PS1+="\[\e[38;5;61;1m\]\$\[\e[0m\] "
+    PS1+="  \[\e[38;2;245;224;220;3m\]\w\n\[\e[0m\]"
+    PS1+="\[\e[38;2;180;190;254m\]\$\[\e[0m\] "
 }
 PROMPT_COMMAND=__prompt_command
 
