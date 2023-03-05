@@ -1,7 +1,15 @@
 theme = "iliana"
 
 [editor]
+auto-completion = false
 bufferline = "multiple"
+color-modes = true
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
 
 [editor.file-picker]
 hidden = false
