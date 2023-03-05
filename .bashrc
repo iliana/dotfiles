@@ -79,6 +79,9 @@ else
     alias ls='ls --color=auto'
     alias ll='ls -l --color=auto'
 fi
+if hash bat 2>/dev/null; then
+    alias cat=bat
+fi
 if hash vivid 2>/dev/null; then
     LS_COLORS=$(vivid generate catppuccin-mocha)
 else
