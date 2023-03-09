@@ -1,6 +1,5 @@
 [alias]
 t = "nextest run"
 
-[expand]
-pager = true
-theme = "Dracula"
+[registries.crates-io]
+protocol = "sparse"
