@@ -56,9 +56,9 @@ alias fgrep="${grepdir}fgrep --color=auto"
 alias grep="${grepdir}grep --color=auto"
 unset grepdir
 
-command -v python3 2>/dev/null && alias python=python3
-command -v mpv 2>/dev/null && alias mpvl='mpv --loop-playlist'
-command -v mpv 2>/dev/null && alias mpvsl='mpv --loop-playlist --shuffle'
+command -v python3 >/dev/null 2>&1 && alias python=python3
+command -v mpv >/dev/null 2>&1 && alias mpvl='mpv --loop-playlist'
+command -v mpv >/dev/null 2>&1 && alias mpvsl='mpv --loop-playlist --shuffle'
 
 # There's not a good heuristic for detecting truecolor support for me. On
 # desktop I am almost certainly using kitty -> tmux, which works fine (kitty
@@ -71,7 +71,7 @@ if [[ -n $SSH_CONNECTION ]] && [[ $TERM = tmux-256color ]]; then
     export COLORTERM=truecolor
 fi
 
-if command -v exa 2>/dev/null; then
+if command -v exa >/dev/null 2>&1; then
     alias ls='exa'
     alias ll='exa --long --header'
     alias tree='exa --tree'
@@ -79,17 +79,17 @@ else
     alias ls='ls --color=auto'
     alias ll='ls -l --color=auto'
 fi
-if command -v bat 2>/dev/null; then
+if command -v bat >/dev/null 2>&1; then
     alias cat=bat
 fi
-if command -v vivid 2>/dev/null; then
+if command -v vivid >/dev/null 2>&1; then
     LS_COLORS=$(vivid generate catppuccin-mocha)
 else
     LS_COLORS=$(< ~/.config/dotfiles/vivid.out)
 fi
 export LS_COLORS
 
-if command -v hx 2>/dev/null; then
+if command -v hx >/dev/null 2>&1; then
     export EDITOR=hx
     alias vim=hx
 else
@@ -100,7 +100,7 @@ if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
     alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 fi
 
-if [[ -d $HOME/git/Kaleidoscope ]] && command -v arduino-cli 2>/dev/null; then
+if [[ -d $HOME/git/Kaleidoscope ]] && command -v arduino-cli >/dev/null 2>&1; then
     export KALEIDOSCOPE_DIR=$HOME/git/Kaleidoscope
 fi
 
