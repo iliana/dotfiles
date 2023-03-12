@@ -11,7 +11,7 @@ The description for this repo comes from [this excellent tweet](https://twitter.
 ## iliana's cheat sheet
 
 ```bash
-git clone --bare git@github.com:iliana/dotfiles.git ~/.dotfiles.git
+git clone --bare https://github.com/iliana/dotfiles.git ~/.dotfiles.git
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 dotfiles config --local status.showUntrackedFiles no
 dotfiles checkout
