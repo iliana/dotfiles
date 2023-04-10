@@ -20,3 +20,6 @@ render = true
 [editor.lsp]
 # https://github.com/helix-editor/helix/issues/5827 someday
 auto-signature-help = false
+
+[editor.soft-wrap]
+enable = true
