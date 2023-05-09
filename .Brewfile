@@ -120,7 +120,6 @@ cask "openttd"
 cask "sameboy"
 cask "tailscale"
 cask "transmission-remote-gui"
-cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
 mas "Amphetamine", id: 937984704

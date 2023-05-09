@@ -5,8 +5,6 @@
         /.config/dotfiles/flake.nix
         /.gitignore
         /.gitmodules
-        /Library
-        /git
       ])
       root;
   };
