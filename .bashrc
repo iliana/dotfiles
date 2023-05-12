@@ -32,7 +32,6 @@ fi
 PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
 PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
-[[ -d $HOME/git/omicron ]] && PATH="$HOME/git/omicron/out/cockroachdb/bin:$HOME/git/omicron/out/clickhouse:$PATH"
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
