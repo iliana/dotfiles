@@ -36,6 +36,7 @@ brew "gifski"
 brew "git"
 brew "gnupg"
 brew "go"
+brew "gopls"
 brew "helix"
 brew "hexyl"
 brew "htop"
@@ -126,5 +127,5 @@ mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
 mas "PCalc", id: 403504866
 mas "Parcel", id: 639968404
-mas "RadarScope", id: 432027450
+mas "RadarScope", id: 288419283
 mas "iA Writer", id: 775737590
