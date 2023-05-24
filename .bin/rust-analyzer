@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -euxo pipefail
-if [[ -x ~/.cargo/bin/rust-analyzer ]]; then
-    exec ~/.cargo/bin/rust-analyzer "$@"
-else
-    rustanal=$(rustup which --toolchain stable rust-analyzer)
-    exec "$rustanal" "$@"
-fi
