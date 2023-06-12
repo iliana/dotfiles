@@ -5,3 +5,5 @@ indent = { tab-width = 4, unit = "    " }
 [[language]]
 name = "rust"
 rulers = [100]
+[language.config.check]
+command = "clippy"
