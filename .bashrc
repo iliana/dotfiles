@@ -78,9 +78,6 @@ else
     alias ls='ls --color=auto'
     alias ll='ls -l --color=auto'
 fi
-if command -v bat >/dev/null 2>&1; then
-    alias cat=bat
-fi
 if command -v vivid >/dev/null 2>&1; then
     LS_COLORS=$(vivid generate catppuccin-mocha)
 else
