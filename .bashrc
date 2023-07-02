@@ -19,10 +19,9 @@ unset homebrew
 
 if [[ $OSTYPE = darwin* ]] && [[ $TERM = tmux-256color ]]; then
     export TERMINFO="$HOME/.local/share/terminfo"
-    if ! [[ -f $TERMINFO/tmux-256color.terminfo ]]; then
+    if ! [[ $TERMINFO/74/tmux-256color -nt $HOME/.config/dotfiles/tmux-256color.terminfo ]]; then
         mkdir -p "$TERMINFO"
-        "$HOMEBREW_PREFIX/opt/ncurses/bin/infocmp" -x tmux-256color > "$TERMINFO/tmux-256color.terminfo"
-        /usr/bin/tic -x "$TERMINFO/tmux-256color.terminfo"
+        /usr/bin/tic -x "$HOME/.config/dotfiles/tmux-256color.terminfo"
     fi
 fi
 
