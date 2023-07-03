@@ -1,0 +1,28 @@
+include Catppuccin-Mocha.theme
+background #000000
+
+# Push 256-color grays into the theme
+color232 #090911
+color233 #11111B
+color234 #181825
+color235 #1E1E2E
+color236 #272839
+color237 #313244
+color238 #3B3C4F
+color239 #45475A
+color240 #4E5165
+color241 #585B70
+color242 #62657B
+color243 #6C7086
+color244 #757A91
+color245 #7F849C
+color246 #868BA3
+color247 #8C92AB
+color248 #9399B2
+color249 #9CA3BD
+color250 #A6ADC8
+color251 #B0B7D3
+color252 #BAC2DE
+color253 #CBD1E6
+color254 #DCE0EE
+color255 #EEEFF7
