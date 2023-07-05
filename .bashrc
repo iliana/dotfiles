@@ -87,6 +87,10 @@ export LS_COLORS
 if command -v hx >/dev/null 2>&1; then
     export EDITOR=hx
     alias vim=hx
+elif command -v helix >/dev/null 2>&1; then
+    export EDITOR=helix
+    alias hx=helix
+    alias vim=helix
 else
     export EDITOR=vim
 fi
