@@ -17,3 +17,8 @@ dotfiles config --local status.showUntrackedFiles no
 dotfiles checkout
 dotfiles submodule update --init --recursive
 ```
+
+## Firefox settings
+
+* browser.tabs.closeWindowWithLastTab: false
+* extensions.pocket.enabled: false
