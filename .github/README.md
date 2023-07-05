@@ -22,3 +22,4 @@ dotfiles submodule update --init --recursive
 
 * browser.tabs.closeWindowWithLastTab: false
 * extensions.pocket.enabled: false
+* toolkit.legacyUserProfileCustomizations.stylesheets: true
