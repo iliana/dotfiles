@@ -112,8 +112,8 @@ unset LESSOPEN
 FIGNORE=DS_Store
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE=50000
+HISTFILESIZE=5000000
 HISTTIMEFORMAT="%F %T  "
-unset HISTFILESIZE
 shopt -s checkwinsize histappend
 
 __debug_trap() {
