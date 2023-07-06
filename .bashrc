@@ -43,7 +43,6 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
 [[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
-alias irc='ssh blahaj -t irc'
 
 [[ -x /usr/gnu/bin/grep ]] && grepdir=/usr/gnu/bin/
 # shellcheck disable=SC2139
@@ -57,6 +56,7 @@ unset grepdir
 command -v python3 >/dev/null 2>&1 && alias python=python3
 command -v mpv >/dev/null 2>&1 && alias mpvl='mpv --loop-playlist'
 command -v mpv >/dev/null 2>&1 && alias mpvsl='mpv --loop-playlist --shuffle'
+command -v weechat >/dev/null 2>&1 && alias weechat='HOSTNAME=$HOSTNAME weechat'
 
 # There's not a good heuristic for detecting truecolor support for me. On
 # desktop I am almost certainly using kitty -> tmux, which works fine (kitty
