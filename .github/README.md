@@ -1,5 +1,7 @@
 # iliana's dotfiles
 
+![image](https://github.com/iliana/dotfiles/assets/52814/4c77c5e7-8276-46b3-a286-7c75c12e6333)
+
 I find it is important to share little parts of how I operate a computer to others who are also cursed to operate computers.
 
 These dotfiles are tracked in a bare git repository. This technique has been described in [many](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html) [different](https://www.atlassian.com/git/tutorials/dotfiles) [ways](https://www.google.com/search?q=dotfiles+bare+git+repo).
