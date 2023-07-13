@@ -1,5 +1,2 @@
 [alias]
 t = "nextest run"
-
-[registries.crates-io]
-protocol = "sparse"
