@@ -69,6 +69,10 @@ if [[ -n $SSH_CONNECTION ]] && [[ $TERM = tmux-256color ]]; then
     export COLORTERM=truecolor
 fi
 
+if [[ -x /usr/bin/ksshaskpass ]]; then
+    alias ssh-add='SSH_ASKPASS=/usr/bin/ksshaskpass SSH_ASKPASS_REQUIRE=prefer ssh-add'
+fi
+
 if command -v exa >/dev/null 2>&1; then
     alias ls='exa'
     alias ll='exa --long --header'

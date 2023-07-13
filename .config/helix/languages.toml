@@ -12,3 +12,27 @@ command = "clippy"
 name = "yaml"
 [language.config]
 yaml.keyOrdering = false
+
+[[language]]
+name = "css"
+auto-format = false
+
+[[language]]
+name = "html"
+auto-format = false
+
+[[language]]
+name = "javascript"
+auto-format = false
+
+[[language]]
+name = "jsx"
+auto-format = false
+
+[[language]]
+name = "typescript"
+auto-format = false
+
+[[language]]
+name = "tsx"
+auto-format = false
