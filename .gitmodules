@@ -7,3 +7,9 @@
 [submodule ".vim/pack/iliana/opt/catppuccin"]
 	path = .vim/pack/iliana/start/catppuccin
 	url = https://github.com/catppuccin/vim
+[submodule ".config/dotfiles/weechat-awayonlock"]
+	path = .config/dotfiles/weechat-awayonlock
+	url = https://git.2ki.xyz/snow/weechat-awayonlock.git
+[submodule ".config/dotfiles/weechat-scripts"]
+	path = .config/dotfiles/weechat-scripts
+	url = https://github.com/weechat/scripts.git
