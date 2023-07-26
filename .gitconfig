@@ -14,7 +14,5 @@
 	autosquash = true
 [rerere]
 	enabled = true
-[includeIf "gitdir:~/.dotfiles.git"]
-	path = ~/.config/dotfiles/.gitconfig
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/

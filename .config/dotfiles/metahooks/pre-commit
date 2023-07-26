@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# update vscode-extensions.txt
-if hash code 2>/dev/null; then
-    code --list-extensions > "$HOME/.config/dotfiles/vscode-extensions.txt"
-    git add "$HOME/.config/dotfiles/vscode-extensions.txt"
-fi
