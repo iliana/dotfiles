@@ -22,6 +22,10 @@ name = "html"
 auto-format = false
 
 [[language]]
+name = "json"
+auto-format = false
+
+[[language]]
 name = "javascript"
 auto-format = false
 
