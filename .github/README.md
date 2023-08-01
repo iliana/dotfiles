@@ -6,7 +6,7 @@ I find it is important to share little parts of how I operate a computer to othe
 
 These dotfiles are tracked in a bare git repository. This technique has been described in [many](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html) [different](https://www.atlassian.com/git/tutorials/dotfiles) [ways](https://www.google.com/search?q=dotfiles+bare+git+repo).
 
-For reference, I use macOS and Arch Linux on my desktop machines, mostly NixOS for servers ([my configurations](https://github.com/iliana/nixos-configs)), and illumos for work.
+For reference, I use macOS and Arch Linux on my desktop machines, mostly NixOS for servers ([here are my NixOS configurations](https://github.com/iliana/nixos-configs)), and illumos for work.
 
 The description for this repo comes from [this excellent tweet](https://twitter.com/cakesandcourage/status/1461481653059129345).
 
@@ -22,6 +22,6 @@ dotfiles submodule update --init --recursive
 
 ## Firefox settings
 
-* browser.tabs.closeWindowWithLastTab: false
-* extensions.pocket.enabled: false
-* toolkit.legacyUserProfileCustomizations.stylesheets: true
+- browser.tabs.closeWindowWithLastTab: false
+- extensions.pocket.enabled: false
+- toolkit.legacyUserProfileCustomizations.stylesheets: true ([also userChrome.css](https://iliana.fyi/blog/firefox-pinned-tab-attention-icon/))
