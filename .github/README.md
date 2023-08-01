@@ -20,8 +20,13 @@ dotfiles checkout
 dotfiles submodule update --init --recursive
 ```
 
-## Firefox settings
+## Firefox about:config tweaks
 
+- browser.eme.ui.enabled: false
 - browser.tabs.closeWindowWithLastTab: false
 - extensions.pocket.enabled: false
+- media.eme.enabled: false
+- pdfjs.disabled: true (ymmv)
 - toolkit.legacyUserProfileCustomizations.stylesheets: true ([also userChrome.css](https://iliana.fyi/blog/firefox-pinned-tab-attention-icon/))
+
+References: <https://support.mozilla.org/en-US/questions/1388341>
