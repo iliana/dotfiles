@@ -1,0 +1,1 @@
+../../../../.config/dotfiles/weechat-awayonlock/src/away_on_lock.py
