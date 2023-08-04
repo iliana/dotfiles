@@ -9,10 +9,10 @@ homebrew="$(command -v {/opt/homebrew,/usr/local}/bin/brew 2>/dev/null)"
 if [[ -n $homebrew ]]; then
     if [[ -z ${HOMEBREW_REPOSITORY+x} ]]; then
         # shellcheck disable=SC2046
-        eval $(env -i "$homebrew" shellenv)
+        eval $(env -i USER="$USER" "$homebrew" shellenv)
     else
         # shellcheck disable=SC2046
-        eval $(env -i "$homebrew" shellenv | grep -w PATH=)
+        eval $(env -i USER="$USER" "$homebrew" shellenv | grep -w PATH=)
     fi
 fi
 unset homebrew
