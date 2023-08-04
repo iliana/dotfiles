@@ -107,7 +107,7 @@ if [[ -d $HOME/git/Kaleidoscope ]] && command -v arduino-cli >/dev/null 2>&1; th
     export KALEIDOSCOPE_DIR=$HOME/git/Kaleidoscope
 fi
 
-export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/kijetesantakaluotokieni
+[[ -f $HOMEBREW_PREFIX/bin/kijetesantakaluotokieni ]] && export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/kijetesantakaluotokieni
 export APPLE_SSH_ADD_BEHAVIOR=openssh
 export AWS_SDK_LOAD_CONFIG=1
 export DOCKER_SCAN_SUGGEST=false
