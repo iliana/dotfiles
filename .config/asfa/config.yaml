@@ -1,6 +1,6 @@
-default_host: dreamweaver
+default_host: hydrangea
 hosts:
-  dreamweaver:
-    hostname: dreamweaver
-    folder: /srv/files.iliana.fyi
+  hydrangea:
+    hostname: hydrangea
+    folder: /var/www/files.iliana.fyi
     url: https://files.iliana.fyi

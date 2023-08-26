@@ -16,3 +16,5 @@
 	enabled = true
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+[url "hydrangea.cat-herring.ts.net:/git/"]
+	pushInsteadOf = https://git.iliana.fyi/
