@@ -3,7 +3,6 @@
 	email = iliana@buttslol.net
 [core]
 	excludesfile = ~/.config/gitignore
-	hooksPath = ~/.config/dotfiles/hooks
 [commit]
 	verbose = true
 [pull]
@@ -18,3 +17,7 @@
 	pushInsteadOf = https://github.com/
 [url "hydrangea.cat-herring.ts.net:/git/"]
 	pushInsteadOf = https://git.iliana.fyi/
+[includeIf "hasconfig:remote.*.url:https://github.com/oxidecomputer/**"]
+	path = ~/.config/dotfiles/gitconfig-oxide
+[includeIf "hasconfig:remote.*.url:git@github.com:oxidecomputer/**"]
+	path = ~/.config/dotfiles/gitconfig-oxide
