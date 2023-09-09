@@ -100,7 +100,6 @@ cask "affinity-designer"
 cask "affinity-photo"
 cask "affinity-publisher"
 cask "audacity"
-cask "blackhole-16ch"
 cask "firefox"
 cask "font-inter"
 cask "font-iosevka"
@@ -127,7 +126,6 @@ cask "vlc"
 cask "wireshark"
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "PCalc", id: 403504866
 mas "Parcel", id: 639968404
 mas "RadarScope", id: 288419283
