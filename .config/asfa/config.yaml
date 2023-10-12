@@ -1,6 +1,0 @@
-default_host: hydrangea
-hosts:
-  hydrangea:
-    hostname: hydrangea
-    folder: /var/www/files.iliana.fyi
-    url: https://files.iliana.fyi
