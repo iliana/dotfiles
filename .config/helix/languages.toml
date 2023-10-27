@@ -5,13 +5,6 @@ indent = { tab-width = 4, unit = "    " }
 [[language]]
 name = "rust"
 rulers = [100]
-[language.config.check]
-command = "clippy"
-
-[[language]]
-name = "yaml"
-[language.config]
-yaml.keyOrdering = false
 
 [[language]]
 name = "css"
@@ -40,3 +33,9 @@ auto-format = false
 [[language]]
 name = "tsx"
 auto-format = false
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+
+[language-server.yaml-language-server.config]
+yaml.keyOrdering = false
