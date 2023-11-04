@@ -1,13 +1,11 @@
 {
-  "timeStamp": 1656558949973,
-  "version": "1.43.0",
+  "timeStamp": 1699135485504,
+  "version": "1.53.0",
   "userSettings": {
-    "advancedUserEnabled": true,
-    "externalLists": "https://iliana.github.io/ublock-rules/rules.txt?1656558779",
+    "externalLists": "https://buttslol.net/ublock-filters.txt",
     "importedLists": [
-      "https://iliana.github.io/ublock-rules/rules.txt?1656558779"
-    ],
-    "popupPanelSections": 31
+      "https://buttslol.net/ublock-filters.txt"
+    ]
   },
   "selectedFilterLists": [
     "user-filters",
@@ -15,15 +13,12 @@
     "ublock-badware",
     "ublock-privacy",
     "ublock-quick-fixes",
-    "ublock-abuse",
     "ublock-unbreak",
     "easylist",
     "easyprivacy",
     "urlhaus-1",
-    "adguard-annoyance",
-    "ublock-annoyances",
     "plowe-0",
-    "https://iliana.github.io/ublock-rules/rules.txt?1656558779"
+    "https://buttslol.net/ublock-filters.txt"
   ],
   "hiddenSettings": {},
   "whitelist": [
