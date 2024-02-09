@@ -73,7 +73,11 @@ if [[ -x /usr/bin/ksshaskpass ]]; then
     alias ssh-add='SSH_ASKPASS=/usr/bin/ksshaskpass SSH_ASKPASS_REQUIRE=prefer ssh-add'
 fi
 
-if command -v exa >/dev/null 2>&1; then
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza'
+    alias ll='eza --long --header'
+    alias tree='eza --tree'
+elif command -v exa >/dev/null 2>&1; then
     alias ls='exa'
     alias ll='exa --long --header'
     alias tree='exa --tree'
