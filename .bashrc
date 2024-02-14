@@ -17,9 +17,12 @@ if [[ -n $homebrew ]]; then
 fi
 unset homebrew
 
+# tmux-256color terminfo doesn't ship with macOS (or at least didn't in
+# Monterey), so load up a terminfo that's patched to work with it.
 if [[ $OSTYPE = darwin* ]] && [[ $TERM = tmux-256color ]]; then
     export TERMINFO="$HOME/.local/share/terminfo"
-    if ! [[ $TERMINFO/74/tmux-256color -nt $HOME/.config/dotfiles/tmux-256color.terminfo ]]; then
+    if ! [[ $TERMINFO/74/tmux-256color -nt $HOME/.config/dotfiles/tmux-256color.terminfo ]] \
+            || ! [[ $TERMINFO/74/tmux-256color -nt /usr/bin/tic ]]; then
         mkdir -p "$TERMINFO"
         /usr/bin/tic -x "$HOME/.config/dotfiles/tmux-256color.terminfo"
     fi
@@ -31,6 +34,7 @@ fi
 PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
 PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
+# de-duplicate $PATH
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
 export PATH
 
@@ -85,10 +89,13 @@ else
     alias ls='ls --color=auto'
     alias ll='ls -l --color=auto'
 fi
-if command -v vivid >/dev/null 2>&1; then
-    LS_COLORS=$(vivid generate catppuccin-mocha)
-else
+# regenerate this with:
+# $ vivid generate catppuccin-mocha > ~/.config/dotfiles/vivid.out
+# $ vivid -m 8-bit generate catppuccin-mocha > ~/.config/dotfiles/vivid.8.out
+if [[ $COLORTERM = truecolor ]]; then
     LS_COLORS=$(< ~/.config/dotfiles/vivid.out)
+else
+    LS_COLORS=$(< ~/.config/dotfiles/vivid.8.out)
 fi
 export LS_COLORS
 
@@ -105,10 +112,6 @@ fi
 
 if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
     alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
-fi
-
-if [[ -d $HOME/git/Kaleidoscope ]] && command -v arduino-cli >/dev/null 2>&1; then
-    export KALEIDOSCOPE_DIR=$HOME/git/Kaleidoscope
 fi
 
 [[ -f $HOMEBREW_PREFIX/bin/kijetesantakaluotokieni ]] && export ANSIBLE_COW_PATH=$HOMEBREW_PREFIX/bin/kijetesantakaluotokieni
