@@ -5,12 +5,14 @@
 	excludesfile = ~/.config/gitignore
 [commit]
 	verbose = true
+	cleanup = scissors
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
 [rebase]
 	autosquash = true
+	autostash = true
 [rerere]
 	enabled = true
 [url "git@github.com:"]
@@ -21,3 +23,13 @@
 	path = ~/.config/dotfiles/gitconfig-oxide
 [includeIf "hasconfig:remote.*.url:git@github.com:oxidecomputer/**"]
 	path = ~/.config/dotfiles/gitconfig-oxide
+[diff]
+	algorithm = histogram
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
+[merge]
+	conflictstyle = zdiff3
