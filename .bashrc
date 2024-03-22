@@ -5,6 +5,12 @@
 
 # User specific aliases, environment, and functions
 
+HISTCONTROL=ignoredups:erasedups
+HISTSIZE=50000
+HISTFILESIZE=
+HISTTIMEFORMAT="%F %T  "
+shopt -s checkwinsize histappend
+
 homebrew="$(command -v {/opt/homebrew,/usr/local}/bin/brew 2>/dev/null)"
 if [[ -n $homebrew ]]; then
     if [[ -z ${HOMEBREW_REPOSITORY+x} ]]; then
@@ -121,11 +127,6 @@ export DOCKER_SCAN_SUGGEST=false
 unset LESSOPEN
 
 FIGNORE=DS_Store
-HISTCONTROL=ignoredups:erasedups
-HISTSIZE=50000
-HISTFILESIZE=
-HISTTIMEFORMAT="%F %T  "
-shopt -s checkwinsize histappend
 
 __debug_trap() {
     # shellcheck disable=SC2046
