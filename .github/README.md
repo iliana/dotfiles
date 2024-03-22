@@ -13,9 +13,11 @@ The description for this repo comes from [this excellent tweet](https://web.arch
 ## iliana's cheat sheet
 
 ```bash
-git clone --bare https://github.com/iliana/dotfiles.git ~/.dotfiles.git
+git clone --no-checkout --separate-git-dir=$HOME/.dotfiles.git \
+    --config status.showUntrackedFiles=no \
+    https://github.com/iliana/dotfiles.git
+rm dotfiles/.git; rmdir dotfiles
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-dotfiles config --local status.showUntrackedFiles no
 dotfiles checkout
 dotfiles submodule update --init --recursive
 ```
