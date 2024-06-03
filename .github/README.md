@@ -12,15 +12,7 @@ The description for this repo comes from [this excellent tweet](https://web.arch
 
 ## iliana's cheat sheet
 
-```bash
-git clone --no-checkout --separate-git-dir=$HOME/.dotfiles.git \
-    --config status.showUntrackedFiles=no \
-    https://github.com/iliana/dotfiles.git
-rm dotfiles/.git; rmdir dotfiles
-alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-dotfiles checkout
-dotfiles submodule update --init --recursive
-```
+<pre>curl <a href="https://ili.fyi/dotfiles.sh">https://ili.fyi/dotfiles.sh</a> | sh</pre>
 
 ## Firefox about:config tweaks
 
