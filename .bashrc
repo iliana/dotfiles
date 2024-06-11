@@ -34,11 +34,18 @@ if [[ $OSTYPE = darwin* ]] && [[ $TERM = tmux-256color ]]; then
     fi
 fi
 
+# NetBSD doesn't have any system-wide configs that set $PATH and relies on ~/.profile.
+# The presence of this bashrc prevents loading ~/.profile.
+if [[ $OSTYPE = netbsd ]]; then
+    PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R7/bin:/usr/pkg/bin
+    PATH+=:/usr/pkg/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
+fi
+
 [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 [[ -x /opt/local/bin/pkgin ]] && PATH="$PATH:/opt/local/sbin:/opt/local/bin"
 
-PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
+[[ ! -z ${HOMEBREW_PREFIX+x} ]] && PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+[[ ! -z ${HOMEBREW_PREFIX+x} ]] && PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
 PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
 # de-duplicate $PATH
 PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
@@ -46,6 +53,7 @@ export PATH
 
 [[ -f $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 [[ -f /usr/share/bash-completion/bash_completion ]] && . "/usr/share/bash-completion/bash_completion"
+[[ -f /usr/pkg/share/bash-completion/bash_completion ]] && . "/usr/pkg/share/bash-completion/bash_completion"
 
 unalias -a
 
@@ -53,15 +61,6 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
 [[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
-
-[[ -x /usr/gnu/bin/grep ]] && grepdir=/usr/gnu/bin/
-# shellcheck disable=SC2139
-alias egrep="${grepdir}egrep --color=auto"
-# shellcheck disable=SC2139
-alias fgrep="${grepdir}fgrep --color=auto"
-# shellcheck disable=SC2139
-alias grep="${grepdir}grep --color=auto"
-unset grepdir
 
 command -v python3 >/dev/null 2>&1 && alias python=python3
 command -v mpv >/dev/null 2>&1 && alias mpvl='mpv --loop-playlist'
@@ -91,9 +90,6 @@ elif command -v exa >/dev/null 2>&1; then
     alias ls='exa'
     alias ll='exa --long --header'
     alias tree='exa --tree'
-else
-    alias ls='ls --color=auto'
-    alias ll='ls -l --color=auto'
 fi
 # regenerate this with:
 # $ vivid generate catppuccin-mocha > ~/.config/dotfiles/vivid.out
