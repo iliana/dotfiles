@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# This is https://github.com/not-an-aardvark/git-delete-squashed (found via
+# https://stackoverflow.com/a/56026209) converted from a one-liner into a more
+# understandable script.
+
+set -euo pipefail
+
+currentbranch=$(git rev-parse --abbrev-ref HEAD)
+git for-each-ref refs/heads/ "--format=%(refname:short)" | while read -r branch; do
+	tree=$(git rev-parse "$branch^{tree}")
+	mergebase=$(git merge-base "$currentbranch" "$branch")
+	commit=$(git commit-tree "$tree" -p "$mergebase" -m _)
+	if [[ $(git cherry "$currentbranch" "$commit") == -* ]]; then
+		git branch -D "$branch"
+	fi
+done
