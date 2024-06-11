@@ -1,0 +1,2 @@
+[fetch "fsck"]
+	skipList = ~/.config/dotfiles/git-fsck-skiplist-illumos-gate

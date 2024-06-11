@@ -19,10 +19,14 @@
 	pushInsteadOf = https://github.com/
 [url "hydrangea.cat-herring.ts.net:/git/"]
 	pushInsteadOf = https://git.iliana.fyi/
-[includeIf "hasconfig:remote.*.url:https://github.com/oxidecomputer/**"]
+[includeIf "hasconfig:remote.*.url:https://github.com/oxidecomputer/*"]
 	path = ~/.config/dotfiles/gitconfig-oxide
-[includeIf "hasconfig:remote.*.url:git@github.com:oxidecomputer/**"]
+[includeIf "hasconfig:remote.*.url:git@github.com:oxidecomputer/*"]
 	path = ~/.config/dotfiles/gitconfig-oxide
+[includeIf "hasconfig:remote.*.url:https://github.com/oxidecomputer/illumos-gate*"]
+	path = ~/.config/dotfiles/gitconfig-illumos-gate
+[includeIf "hasconfig:remote.*.url:git@github.com:oxidecomputer/illumos-gate*"]
+	path = ~/.config/dotfiles/gitconfig-illumos-gate
 [diff]
 	algorithm = histogram
 [transfer]
