@@ -16,6 +16,7 @@ The description for this repo comes from [this excellent tweet](https://web.arch
 
 ## Firefox about:config tweaks
 
+- apz.overscroll.enabled: false
 - browser.eme.ui.enabled: false
 - browser.tabs.closeWindowWithLastTab: false
 - extensions.pocket.enabled: false

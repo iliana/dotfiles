@@ -60,8 +60,6 @@ unalias -a
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 [[ $(type -t __git_complete) = function ]] && __git_complete dotfiles git
 
-[[ $TERM = "xterm-kitty" ]] && alias ssh='TERM=tmux-256color ssh'
-
 command -v python3 >/dev/null 2>&1 && alias python=python3
 command -v mpv >/dev/null 2>&1 && alias mpvl='mpv --loop-playlist'
 command -v mpv >/dev/null 2>&1 && alias mpvsl='mpv --loop-playlist --shuffle'
@@ -78,18 +76,10 @@ if [[ -n $SSH_CONNECTION ]] && [[ $TERM = tmux-256color ]]; then
     export COLORTERM=truecolor
 fi
 
-if [[ -x /usr/bin/ksshaskpass ]]; then
-    alias ssh-add='SSH_ASKPASS=/usr/bin/ksshaskpass SSH_ASKPASS_REQUIRE=prefer ssh-add'
-fi
-
 if command -v eza >/dev/null 2>&1; then
     alias ls='eza'
     alias ll='eza --long --header'
     alias tree='eza --tree'
-elif command -v exa >/dev/null 2>&1; then
-    alias ls='exa'
-    alias ll='exa --long --header'
-    alias tree='exa --tree'
 fi
 # regenerate this with:
 # $ vivid generate catppuccin-mocha > ~/.config/dotfiles/vivid.out
@@ -101,15 +91,14 @@ else
 fi
 export LS_COLORS
 
-if command -v hx >/dev/null 2>&1; then
-    export EDITOR=hx
-    alias vim=hx
-elif command -v helix >/dev/null 2>&1; then
-    export EDITOR=helix
+if command -v helix >/dev/null 2>&1; then
     alias hx=helix
-    alias vim=helix
-else
-    export EDITOR=vim
+fi
+if command -v vim >/dev/null 2>&1 && command -v hx >/dev/null 2>&1; then
+    function vim() {
+        >&2 echo '-bash: vim: fix your muscle memory'
+        return 127
+    }
 fi
 
 if [[ -e /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
@@ -120,6 +109,7 @@ fi
 export APPLE_SSH_ADD_BEHAVIOR=openssh
 export AWS_SDK_LOAD_CONFIG=1
 export DOCKER_SCAN_SUGGEST=false
+unset LESS
 unset LESSOPEN
 
 FIGNORE=DS_Store
