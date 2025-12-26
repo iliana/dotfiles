@@ -39,3 +39,5 @@
 	fsckobjects = true
 [merge]
 	conflictstyle = zdiff3
+[color]
+	ui = auto
