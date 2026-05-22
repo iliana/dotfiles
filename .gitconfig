@@ -17,10 +17,10 @@
 	enabled = true
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+[url "git@codeberg.org:"]
+	pushInsteadOf = https://codeberg.org/
 [url "hydrangea.cat-herring.ts.net:/git/"]
 	pushInsteadOf = https://git.iliana.fyi/
-[url "git@github.com:oxidecomputer/dendrite"]
-	insteadOf = https://github.com/oxidecomputer/dendrite
 [includeIf "hasconfig:remote.*.url:https://github.com/oxidecomputer/*"]
 	path = ~/.config/dotfiles/gitconfig-oxide
 [includeIf "hasconfig:remote.*.url:git@github.com:oxidecomputer/*"]
