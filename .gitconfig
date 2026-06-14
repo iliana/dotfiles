@@ -19,7 +19,7 @@
 	pushInsteadOf = https://github.com/
 [url "git@codeberg.org:"]
 	pushInsteadOf = https://codeberg.org/
-[url "hydrangea.cat-herring.ts.net:/git/"]
+[url "asteraceae.ts.7x6.net:/git/"]
 	pushInsteadOf = https://git.iliana.fyi/
 [includeIf "hasconfig:remote.*.url:https://github.com/oxidecomputer/*"]
 	path = ~/.config/dotfiles/gitconfig-oxide
