@@ -1,1 +1,0 @@
-../../../../.config/dotfiles/weechat-scripts/python/autosort.py

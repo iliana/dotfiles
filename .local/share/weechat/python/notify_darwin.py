@@ -1,1 +1,0 @@
-../../../../.config/dotfiles/weechat-awayonlock/src/notify_darwin.py
