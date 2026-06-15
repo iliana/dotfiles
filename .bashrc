@@ -18,6 +18,11 @@ if [[ $OSTYPE = netbsd ]]; then
     PATH+=:/usr/pkg/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
 fi
 
+PATH="$HOME/.bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
+# de-duplicate PATH
+PATH="$(tr : '\n' <<<"$PATH" | awk '!x[$0]++' | tr '\n' : | sed -e 's/:$//')"
+export PATH
+
 [[ -f /usr/share/bash-completion/bash_completion ]] && . "/usr/share/bash-completion/bash_completion"
 
 unalias -a
