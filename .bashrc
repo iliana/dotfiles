@@ -43,6 +43,10 @@ fi
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
+if [[ -x /usr/gnu/bin/ls ]]; then
+    alias ls='/usr/gnu/bin/ls --color=auto'
+    alias ll='/usr/gnu/bin/ls --color=auto -l'
+fi
 # regenerate this with:
 # $ vivid generate catppuccin-mocha > ~/.config/dotfiles/vivid.out
 # $ vivid -m 8-bit generate catppuccin-mocha > ~/.config/dotfiles/vivid.8.out
@@ -53,7 +57,11 @@ else
 fi
 export LS_COLORS
 
+if command -v hx >/dev/null 2>&1; then
+    export EDITOR=hx
+fi
 if command -v helix >/dev/null 2>&1; then
+    export EDITOR=helix
     alias hx=helix
 fi
 if command -v vim >/dev/null 2>&1 && command -v hx >/dev/null 2>&1; then
