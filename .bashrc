@@ -78,15 +78,17 @@ unset LESSOPEN
 
 __debug_trap() {
     # shellcheck disable=SC2046
-    [[ -n $TMUX ]] && eval $(tmux show-environment -s)
+    command -v tmux >/dev/null 2>&1 && [[ -n $TMUX ]] && eval $(tmux show-environment -s)
 }
 trap __debug_trap DEBUG
 
 __prompt_command() {
     local exit=$?
+    local host=${HOSTNAME%.*}
+    [[ -n $IN_NIX_SHELL ]] && host=nix:${name-nix-shell-env}
 
     PS1="\n\[\e[48;2;24;24;37m\]\[\e[K\]"
-    PS1+="\[\e[38;2;137;180;250m\]${HOSTNAME%.*}\[\e[39m\]"
+    PS1+="\[\e[38;2;137;180;250m\]$host\[\e[39m\]"
     if [[ $exit != 0 ]]; then
         PS1+="  \[\e[38;2;235;160;172m\]$exit\[\e[39m\]"
     else
